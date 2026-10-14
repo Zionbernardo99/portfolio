@@ -138,7 +138,7 @@ function CartaoProjeto({ projeto, indice, abrir }: { projeto: Projeto; indice: n
 
         <div className="relative flex flex-1 flex-col p-6 pt-2">
           <p className="font-mono text-xs text-ciano">
-            {projeto.categoria} · {projeto.ano}
+            {[projeto.categoria, projeto.ano].filter(Boolean).join(" · ")}
           </p>
           <h3 className="mt-2 flex items-center justify-between gap-3 font-display text-2xl font-semibold">
             {projeto.titulo}
@@ -147,7 +147,7 @@ function CartaoProjeto({ projeto, indice, abrir }: { projeto: Projeto; indice: n
             </span>
           </h3>
           <p className="mt-2 flex-1 text-sm leading-relaxed text-suave">{projeto.resumo}</p>
-          <div className="mt-5 flex flex-wrap gap-1.5">
+          <div className="mt-5 flex flex-wrap gap-1.5 empty:hidden">
             {projeto.tecnologias.slice(0, 5).map((t) => (
               <Etiqueta key={t}>{t}</Etiqueta>
             ))}
@@ -345,18 +345,22 @@ function Detalhes({ projeto, fechar }: { projeto: Projeto; fechar: () => void })
         {/* Texto */}
         <div className="flex flex-col p-7 md:overflow-y-auto md:p-9">
           <p className="font-mono text-xs text-ciano">
-            {projeto.categoria} · {projeto.ano}
+            {[projeto.categoria, projeto.ano].filter(Boolean).join(" · ")}
           </p>
           <h3 className="mt-2 font-display text-3xl font-bold tracking-tight md:text-4xl">{projeto.titulo}</h3>
           <p className="mt-2 text-lg text-texto/85">{projeto.resumo}</p>
           <p className="mt-5 leading-relaxed text-suave">{projeto.descricao}</p>
 
-          <p className="mt-7 mb-3 font-mono text-xs tracking-widest text-apagado uppercase">Tecnologias</p>
-          <div className="flex flex-wrap gap-1.5">
-            {projeto.tecnologias.map((t) => (
-              <Etiqueta key={t}>{t}</Etiqueta>
-            ))}
-          </div>
+          {projeto.tecnologias.length > 0 && (
+            <>
+              <p className="mt-7 mb-3 font-mono text-xs tracking-widest text-apagado uppercase">Tecnologias</p>
+              <div className="flex flex-wrap gap-1.5">
+                {projeto.tecnologias.map((t) => (
+                  <Etiqueta key={t}>{t}</Etiqueta>
+                ))}
+              </div>
+            </>
+          )}
 
           {(projeto.link || projeto.codigo) && (
             <div className="mt-auto flex flex-wrap gap-3 pt-8">

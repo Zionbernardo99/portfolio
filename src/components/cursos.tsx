@@ -27,10 +27,12 @@ export function Cursos() {
                 <div className="flex min-w-0 flex-1 flex-col">
                   <div className="flex items-start justify-between gap-3">
                     <h3 className="font-display text-lg leading-snug font-semibold">{c.nome}</h3>
-                    <span className="shrink-0 rounded-full bg-white/5 px-2.5 py-0.5 font-mono text-xs text-suave">{c.ano}</span>
+                    {c.ano && (
+                      <span className="shrink-0 rounded-full bg-white/5 px-2.5 py-0.5 font-mono text-xs text-suave">{c.ano}</span>
+                    )}
                   </div>
-                  <p className="mt-1 text-sm text-suave">{c.instituicao}</p>
-                  <div className="mt-auto flex items-center gap-4 pt-4 text-xs text-apagado">
+                  {c.instituicao && <p className="mt-1 text-sm text-suave">{c.instituicao}</p>}
+                  <div className="mt-auto flex items-center gap-4 pt-4 text-xs text-apagado empty:hidden">
                     {c.carga && (
                       <span className="inline-flex items-center gap-1.5">
                         <Clock className="size-3.5" /> {c.carga}

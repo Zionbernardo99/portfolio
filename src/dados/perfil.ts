@@ -40,7 +40,8 @@ export type Projeto = {
   /** Usado nos filtros no topo da seção. */
   categoria: string;
   tecnologias: string[];
-  ano: string;
+  /** Opcional. */
+  ano?: string;
   link?: string;
   codigo?: string;
   /** Projetos em destaque ocupam um card maior. */
@@ -61,8 +62,10 @@ export type Habilidade = {
 
 export type Curso = {
   nome: string;
-  instituicao: string;
-  ano: string;
+  /** Opcional. */
+  instituicao?: string;
+  /** Opcional. */
+  ano?: string;
   /** Ex.: "40h". Opcional. */
   carga?: string;
   /** Link do certificado. Opcional. */
@@ -88,7 +91,7 @@ export const perfil = {
    * Coloque sua foto em `public/foto.jpg` e escreva "/foto.jpg" aqui.
    * Vazio ("") mostra suas iniciais no lugar.
    */
-  foto: "",
+  foto: "/foto.webp",
   /** Frases que vão se alternando, digitadas, no topo do site. */
   cargos: ["Desenvolvedor Full Stack", "Criador do Lifelyst", "Apaixonado por produto"],
   apresentacao:
@@ -108,13 +111,6 @@ export const perfil = {
   ] satisfies Link[],
 };
 
-/** Os números grandes da seção "Sobre". */
-export const numeros = [
-  { valor: 3, sufixo: "+", rotulo: "anos programando" }, // EXEMPLO
-  { valor: 12, sufixo: "+", rotulo: "projetos entregues" }, // EXEMPLO
-  { valor: 8, sufixo: "", rotulo: "cursos concluídos" }, // EXEMPLO
-  { valor: 10, sufixo: "+", rotulo: "tecnologias" }, // EXEMPLO
-];
 
 // ─── Onde trabalhei ───────────────────────────────────────────────────────
 
@@ -181,25 +177,22 @@ export const projetos: Projeto[] = [
     destaque: true,
   },
   {
-    // EXEMPLO
-    titulo: "Projeto Exemplo",
-    resumo: "Troque por um projeto seu — site, app, automação…",
-    descricao: "Conte o problema que o projeto resolve, o que você fez e o que aprendeu.",
+    titulo: "Nex Soluções Digitais",
+    resumo: "Site da Nex Soluções Digitais.",
+    descricao: "Site da Nex Soluções Digitais, no ar em nexsolucoesdigitais.com.br.",
     imagens: [],
     categoria: "Web",
-    tecnologias: ["React", "Node.js"],
-    ano: "2024",
-    codigo: "https://github.com/Zionbernardo99",
+    tecnologias: [],
+    link: "https://nexsolucoesdigitais.com.br/",
   },
   {
-    // EXEMPLO
-    titulo: "Outro Projeto",
-    resumo: "Sem imagem? O card ganha uma capa colorida automática.",
-    descricao: "Coloque prints em `public/projetos/` e liste os caminhos em `imagens`.",
+    titulo: "Vagas Grupo ND",
+    resumo: "Portal de vagas do Grupo ND.",
+    descricao: "Portal de vagas do Grupo ND, no ar em vagas.grupond.com.br.",
     imagens: [],
-    categoria: "Automação",
-    tecnologias: ["Python"],
-    ano: "2023",
+    categoria: "Web",
+    tecnologias: [],
+    link: "https://vagas.grupond.com.br/",
   },
 ];
 
@@ -232,10 +225,9 @@ export const ferramentas = [
 // ─── Cursos e certificados ────────────────────────────────────────────────
 
 export const cursos: Curso[] = [
-  { nome: "Curso Exemplo de JavaScript", instituicao: "Plataforma Exemplo", ano: "2024", carga: "40h" }, // EXEMPLO
-  { nome: "Curso Exemplo de React", instituicao: "Plataforma Exemplo", ano: "2024", carga: "60h" }, // EXEMPLO
-  { nome: "Curso Exemplo de Banco de Dados", instituicao: "Escola Exemplo", ano: "2023", carga: "30h" }, // EXEMPLO
-  { nome: "Graduação / Técnico (se tiver)", instituicao: "Instituição Exemplo", ano: "2022" }, // EXEMPLO
+  { nome: "Como Conseguir um Novo Emprego", instituicao: "Fundação Bradesco", ano: "2026" },
+  { nome: "IA na Prática: Como Dados bem Estruturados fazem a Diferença", instituicao: "Fundação Bradesco", ano: "2026" },
+  { nome: "Inteligência Artificial para Estudantes" },
 ];
 
 // ─── Outras competências ──────────────────────────────────────────────────
@@ -250,7 +242,16 @@ export const competencias: Competencia[] = [
 ];
 
 export const idiomas: Idioma[] = [
-  { nome: "Português", nivel: "Nativo", porcentagem: 100 },
-  { nome: "Inglês", nivel: "Intermediário", porcentagem: 60 }, // EXEMPLO
-  { nome: "Espanhol", nivel: "Básico", porcentagem: 30 }, // EXEMPLO
+  { nome: "Português", nivel: "Fluente", porcentagem: 100 },
+  { nome: "Inglês", nivel: "Intermediário", porcentagem: 60 },
+];
+
+// ─── Números da seção "Sobre" ─────────────────────────────────────────────
+
+/** Os que saem das listas acima se atualizam sozinhos. */
+export const numeros = [
+  { valor: 3, sufixo: "+", rotulo: "anos programando" }, // EXEMPLO
+  { valor: projetos.length, sufixo: "", rotulo: projetos.length === 1 ? "projeto no ar" : "projetos no ar" },
+  { valor: cursos.length, sufixo: "", rotulo: cursos.length === 1 ? "curso concluído" : "cursos concluídos" },
+  { valor: linguagens.length + ferramentas.length, sufixo: "", rotulo: "tecnologias" },
 ];
