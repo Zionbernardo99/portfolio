@@ -2,17 +2,14 @@
 
 Site pessoal / currículo online. Next.js 16 · React 19 · TypeScript · Tailwind v4 · Motion (animações).
 
-É um projeto **separado** do Lifelyst: tem o próprio `package.json` e não interfere no app.
-
 ## Rodando
 
 ```bash
-cd portfolio
 npm install
 npm run dev
 ```
 
-Abre em http://localhost:3001 (porta 3001 para não brigar com o Lifelyst na 3000).
+Abre em http://localhost:3000.
 
 ## Editando o conteúdo
 
@@ -41,5 +38,7 @@ Quem tem "reduzir movimento" ligado no sistema recebe o site sem as animações 
 ## Publicando na Vercel
 
 1. Na Vercel, **Add New → Project** e escolha este repositório.
-2. Em **Root Directory**, escolha `portfolio`.
-3. Deploy. Depois dá para ligar um domínio próprio (ex.: `zionbernardo.dev`).
+2. Deixe tudo como vier (a Vercel reconhece o Next.js sozinha) e clique em **Deploy**.
+3. Depois dá para ligar um domínio próprio (ex.: `zionbernardo.dev`).
+
+Cada push na `main` atualiza o site no ar.
