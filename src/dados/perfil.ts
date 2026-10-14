@@ -117,6 +117,16 @@ export const perfil = {
 
 export const experiencias: Experiencia[] = [
   {
+    empresa: "Grupo ND",
+    cargo: "Analista de Infraestrutura",
+    inicio: "",
+    fim: "",
+    local: "Florianópolis, SC",
+    descricao: "Analista de Infraestrutura no maior grupo de comunicação de Santa Catarina.",
+    conquistas: ["Desenvolvi o portal de carreiras do grupo (vagas.grupond.com.br)"],
+    tecnologias: [],
+  },
+  {
     empresa: "Nex Soluções Digitais",
     cargo: "Fundador",
     inicio: "",
