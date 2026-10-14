@@ -1,7 +1,7 @@
 "use client";
 
 import { ArrowDown, ArrowUpRight, Download, MapPin, Sparkles } from "lucide-react";
-import { motion, useMotionValue, useScroll, useSpring, useTransform } from "motion/react";
+import { motion, useInView, useMotionValue, useScroll, useSpring, useTransform } from "motion/react";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { perfil } from "@/dados/perfil";
@@ -158,9 +158,9 @@ export function Hero() {
         className="absolute bottom-6 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 font-mono text-[10px] tracking-[0.3em] text-apagado uppercase sm:flex"
       >
         rolar
-        <motion.span animate={{ y: [0, 6, 0] }} transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}>
+        <span className="animate-quicar">
           <ArrowDown className="size-4" />
-        </motion.span>
+        </span>
       </motion.a>
     </section>
   );
@@ -201,7 +201,7 @@ function Foto() {
         className="relative size-64 sm:size-80 lg:size-[22rem]"
       >
         {/* Brilho atrás */}
-        <div className="absolute -inset-6 rounded-[3rem] bg-gradient-to-br from-violeta/40 via-ciano/20 to-rosa/30 blur-3xl" />
+        <div className="absolute -inset-16 bg-[radial-gradient(closest-side,rgb(139_92_246/0.45),rgb(34_211_238/0.18)_55%,transparent)]" />
         {/* Borda girando */}
         <div className="absolute inset-0 overflow-hidden rounded-[2.5rem] p-[2px]">
           <div className="absolute -inset-1/2 animate-girar bg-[conic-gradient(from_0deg,transparent_0%,#8b5cf6_15%,#22d3ee_35%,transparent_50%,#f472b6_70%,transparent_85%)]" />
@@ -234,16 +234,18 @@ function Flutuante({ children, className, atraso }: { children: React.ReactNode;
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.6 }}
-      animate={{ opacity: 1, scale: 1, y: [0, -10, 0] }}
-      transition={{
-        opacity: { delay: 1.2 + atraso * 0.2 },
-        scale: { delay: 1.2 + atraso * 0.2, type: "spring" },
-        y: { duration: 4, repeat: Infinity, ease: "easeInOut", delay: atraso },
-      }}
-      className={`vidro absolute flex items-center gap-2 rounded-2xl px-3.5 py-2 text-xs font-medium whitespace-nowrap shadow-xl shadow-black/30 sm:text-sm ${className}`}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ opacity: { delay: 1.2 + atraso * 0.2 }, scale: { delay: 1.2 + atraso * 0.2, type: "spring" } }}
+      className={`absolute ${className}`}
       style={{ z: 40 }}
     >
-      {children}
+      {/* A flutuação é CSS: roda na placa de vídeo, sem JavaScript a cada quadro. */}
+      <div
+        className="flex animate-flutuar border border-borda bg-superficie/90 items-center gap-2 rounded-2xl px-3.5 py-2 text-xs font-medium whitespace-nowrap shadow-xl shadow-black/30 sm:text-sm"
+        style={{ animationDelay: `${atraso}s` }}
+      >
+        {children}
+      </div>
     </motion.div>
   );
 }
@@ -252,8 +254,12 @@ function MaquinaDeEscrever({ frases }: { frases: string[] }) {
   const [indice, setIndice] = useState(0);
   const [letras, setLetras] = useState(0);
   const [apagando, setApagando] = useState(false);
+  // Fora da tela, para de digitar: não tem por que redesenhar o que ninguém vê.
+  const ref = useRef<HTMLSpanElement>(null);
+  const visivel = useInView(ref);
 
   useEffect(() => {
+    if (!visivel) return;
     const frase = frases[indice % frases.length];
     let espera = apagando ? 35 : 70;
     if (!apagando && letras === frase.length) espera = 1800;
@@ -267,11 +273,11 @@ function MaquinaDeEscrever({ frases }: { frases: string[] }) {
       } else setLetras((n) => n + (apagando ? -1 : 1));
     }, espera);
     return () => clearTimeout(t);
-  }, [frases, indice, letras, apagando]);
+  }, [frases, indice, letras, apagando, visivel]);
 
   const frase = frases[indice % frases.length];
   return (
-    <span aria-label={frases.join(", ")}>
+    <span ref={ref} aria-label={frases.join(", ")}>
       <span aria-hidden className="text-suave">
         ~/
       </span>

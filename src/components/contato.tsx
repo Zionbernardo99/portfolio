@@ -26,7 +26,7 @@ export function Contato() {
         <div className="relative overflow-hidden rounded-[2rem] border border-borda bg-gradient-to-br from-violeta/15 via-superficie to-ciano/10 px-6 py-16 text-center sm:px-12 md:py-24">
           <motion.div
             aria-hidden
-            className="absolute -top-1/2 left-1/2 size-[36rem] -translate-x-1/2 rounded-full bg-violeta/20 blur-[120px]"
+            className="absolute -top-1/2 left-1/2 size-[50rem] -translate-x-1/2 rounded-full bg-[radial-gradient(closest-side,rgb(139_92_246/0.2),transparent)]"
             animate={{ scale: [1, 1.15, 1], opacity: [0.6, 1, 0.6] }}
             transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
           />

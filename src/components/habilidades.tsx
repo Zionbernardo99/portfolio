@@ -43,8 +43,8 @@ export function Habilidades({ linguagens, ferramentas }: { linguagens: Linguagem
               >
                 <div
                   aria-hidden
-                  className="absolute -top-10 -right-10 size-28 rounded-full opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-40"
-                  style={{ background: cor }}
+                  className="absolute -top-16 -right-16 size-40 rounded-full opacity-0 transition-opacity duration-500 group-hover:opacity-40"
+                  style={{ background: `radial-gradient(closest-side, ${cor}, transparent)` }}
                 />
                 <div className="relative flex items-center gap-3">
                   <span

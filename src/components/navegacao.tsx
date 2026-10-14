@@ -72,7 +72,7 @@ export function Navegacao() {
       >
         <nav
           className={`flex w-full max-w-6xl items-center justify-between rounded-full px-3 py-2 transition-all duration-500 sm:px-4 ${
-            rolou || menuAberto ? "vidro shadow-2xl shadow-black/40" : "border border-transparent"
+            rolou || menuAberto ? "fosco shadow-2xl shadow-black/40" : "border border-transparent"
           }`}
         >
           <a

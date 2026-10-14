@@ -18,6 +18,12 @@
   --animate-girar: girar 8s linear infinite;
   --animate-faixa: faixa 40s linear infinite;
   --animate-piscar: piscar 1s steps(1) infinite;
+  --animate-flutuar: flutuar 4s ease-in-out infinite;
+  --animate-quicar: quicar 1.6s ease-in-out infinite;
+  --animate-pulinho: pulinho 0.6s ease-in-out infinite;
+  --animate-mancha-1: mancha-1 26s ease-in-out infinite;
+  --animate-mancha-2: mancha-2 32s ease-in-out infinite;
+  --animate-mancha-3: mancha-3 38s ease-in-out infinite;
 
   @keyframes girar {
     to { transform: rotate(360deg); }
@@ -27,6 +33,28 @@
   }
   @keyframes piscar {
     50% { opacity: 0; }
+  }
+  @keyframes flutuar {
+    50% { transform: translateY(-10px); }
+  }
+  @keyframes quicar {
+    50% { transform: translateY(6px); }
+  }
+  @keyframes pulinho {
+    50% { transform: translateY(-4px); }
+  }
+  /* As manchas do fundo: só transform, que a placa de vídeo anima sozinha. */
+  @keyframes mancha-1 {
+    33% { transform: translate3d(120px, 80px, 0); }
+    66% { transform: translate3d(-40px, 160px, 0); }
+  }
+  @keyframes mancha-2 {
+    33% { transform: translate3d(-140px, 100px, 0); }
+    66% { transform: translate3d(-60px, -80px, 0); }
+  }
+  @keyframes mancha-3 {
+    33% { transform: translate3d(100px, -90px, 0); }
+    66% { transform: translate3d(-120px, -30px, 0); }
   }
 }
 
@@ -60,11 +88,22 @@ section[id] {
   color: transparent;
 }
 
+/*
+ * Vidro sem desfoque: o fundo já é escuro e borrado, então o desfoque quase
+ * não aparece, mas custa caro — o navegador refaz o borrão a cada quadro.
+ * O desfoque de verdade (`fosco`) fica só onde se vê: o menu e os botões
+ * por cima de fotos.
+ */
 @utility vidro {
-  background: rgb(255 255 255 / 0.035);
+  background: linear-gradient(180deg, rgb(255 255 255 / 0.05), rgb(255 255 255 / 0.025));
   border: 1px solid var(--color-borda);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+}
+
+@utility fosco {
+  background: rgb(12 12 20 / 0.55);
+  border: 1px solid var(--color-borda);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
 }
 
 /* Faixa de ferramentas: some nas pontas em vez de cortar seco. */

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useMotionTemplate, useMotionValue, type HTMLMotionProps } from "motion/react";
+import { motion, useMotionValue, type HTMLMotionProps } from "motion/react";
 import type { ReactNode } from "react";
 
 const suave = [0.22, 1, 0.36, 1] as const;
@@ -14,8 +14,8 @@ export function Revelar({
 }: { children: ReactNode; atraso?: number } & HTMLMotionProps<"div">) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 28, filter: "blur(6px)" }}
-      whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+      initial={{ opacity: 0, y: 28 }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.7, ease: suave, delay: atraso }}
       className={className}
@@ -73,9 +73,8 @@ export function CartaoBrilho({
   /** RGB separado por espaço, ex.: "34 211 238". */
   cor?: string;
 }) {
-  const x = useMotionValue(-400);
-  const y = useMotionValue(-400);
-  const brilho = useMotionTemplate`radial-gradient(360px circle at ${x}px ${y}px, rgb(${cor} / 0.16), transparent 70%)`;
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
 
   return (
     <div
@@ -84,13 +83,14 @@ export function CartaoBrilho({
         x.set(e.clientX - caixa.left);
         y.set(e.clientY - caixa.top);
       }}
-      onPointerLeave={() => {
-        x.set(-400);
-        y.set(-400);
-      }}
       className={`group vidro relative overflow-hidden rounded-2xl transition-colors duration-300 hover:border-white/15 ${className}`}
     >
-      <motion.div aria-hidden className="pointer-events-none absolute inset-0" style={{ background: brilho }} />
+      {/* O brilho é um círculo que muda de lugar (transform), não um degradê redesenhado. */}
+      <motion.div
+        aria-hidden
+        className="pointer-events-none absolute top-0 left-0 -mt-[360px] -ml-[360px] size-[720px] rounded-full opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+        style={{ x, y, background: `radial-gradient(closest-side, rgb(${cor} / 0.16), transparent 70%)` }}
+      />
       <div className="relative h-full">{children}</div>
     </div>
   );

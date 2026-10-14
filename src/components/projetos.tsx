@@ -130,7 +130,7 @@ function CartaoProjeto({ projeto, indice, abrir }: { projeto: Projeto; indice: n
           )}
           <div className="absolute inset-0 bg-gradient-to-t from-fundo via-fundo/10 to-transparent" />
           {projeto.imagens.length > 1 && (
-            <span className="vidro absolute top-4 right-4 inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs text-texto/90">
+            <span className="fosco absolute top-4 right-4 inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs text-texto/90">
               <Images className="size-3.5" /> {projeto.imagens.length}
             </span>
           )}
@@ -255,7 +255,7 @@ function Detalhes({ projeto, fechar }: { projeto: Projeto; fechar: () => void })
           type="button"
           onClick={fechar}
           aria-label="Fechar"
-          className="vidro absolute top-4 right-4 z-20 grid size-10 place-items-center rounded-full transition-transform hover:rotate-90"
+          className="fosco absolute top-4 right-4 z-20 grid size-10 place-items-center rounded-full transition-transform hover:rotate-90"
         >
           <X className="size-5" />
         </button>
@@ -312,7 +312,7 @@ function Detalhes({ projeto, fechar }: { projeto: Projeto; fechar: () => void })
                   type="button"
                   onClick={() => ir(-1)}
                   aria-label="Imagem anterior"
-                  className="vidro absolute top-1/2 left-3 z-10 grid size-10 -translate-y-1/2 place-items-center rounded-full hover:bg-white/10"
+                  className="fosco absolute top-1/2 left-3 z-10 grid size-10 -translate-y-1/2 place-items-center rounded-full hover:bg-white/10"
                 >
                   <ChevronLeft className="size-5" />
                 </button>
@@ -320,7 +320,7 @@ function Detalhes({ projeto, fechar }: { projeto: Projeto; fechar: () => void })
                   type="button"
                   onClick={() => ir(1)}
                   aria-label="Próxima imagem"
-                  className="vidro absolute top-1/2 right-3 z-10 grid size-10 -translate-y-1/2 place-items-center rounded-full hover:bg-white/10"
+                  className="fosco absolute top-1/2 right-3 z-10 grid size-10 -translate-y-1/2 place-items-center rounded-full hover:bg-white/10"
                 >
                   <ChevronRight className="size-5" />
                 </button>

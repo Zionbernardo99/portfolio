@@ -143,7 +143,7 @@ function Conversa() {
 
   return (
     <div ref={ref} className="relative">
-      <div aria-hidden className="absolute -inset-3 -z-10 rounded-[2rem] sm:-inset-6 bg-gradient-to-br from-violeta/20 via-transparent to-ciano/15 blur-2xl" />
+      <div aria-hidden className="absolute -inset-3 -z-10 bg-[radial-gradient(ellipse_at_30%_30%,rgb(139_92_246/0.2),transparent_60%),radial-gradient(ellipse_at_75%_80%,rgb(34_211_238/0.14),transparent_60%)] sm:-inset-10" />
       <div className="vidro overflow-hidden rounded-3xl">
         <div className="flex items-center gap-3 border-b border-borda px-5 py-4">
           <span className="grid size-9 place-items-center rounded-full bg-gradient-to-br from-violeta to-ciano">
@@ -175,11 +175,10 @@ function Conversa() {
                 aria-label="Lys está pensando"
               >
                 {[0, 1, 2].map((p) => (
-                  <motion.span
+                  <span
                     key={p}
-                    className="size-1.5 rounded-full bg-suave"
-                    animate={{ y: [0, -4, 0] }}
-                    transition={{ duration: 0.6, repeat: Infinity, delay: p * 0.12 }}
+                    className="size-1.5 animate-pulinho rounded-full bg-suave"
+                    style={{ animationDelay: `${p * 0.12}s` }}
                   />
                 ))}
               </motion.div>
