@@ -38,6 +38,9 @@ Quem tem "reduzir movimento" ligado no sistema recebe o site sem as animações 
 
 1. Na Vercel, **Add New → Project** e escolha este repositório.
 2. Deixe tudo como vier (a Vercel reconhece o Next.js sozinha) e clique em **Deploy**.
-3. Depois dá para ligar um domínio próprio (ex.: `zionbernardo.dev`).
+3. Depois dá para ligar um domínio próprio (ex.: `zionbernardo.dev`) — e aí trocar o `site` em `perfil.ts`.
 
-Cada push na `main` atualiza o site no ar.
+Cada push na `main` atualiza o site no ar: https://zionbernardo.vercel.app
+
+A imagem que aparece ao compartilhar o link (WhatsApp, LinkedIn) é
+`src/app/opengraph-image.jpg`, um print 1200×630 do topo do site.

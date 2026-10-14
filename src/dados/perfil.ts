@@ -96,6 +96,8 @@ export const perfil = {
   /** Usado para calcular a idade automaticamente (AAAA-MM-DD). */
   nascimento: "2008-01-09",
   cidade: "Florianópolis, SC",
+  /** Endereço do site no ar. Troque se ligar um domínio próprio. */
+  site: "https://zionbernardo.vercel.app",
   /**
    * Coloque sua foto em `public/foto.jpg` e escreva "/foto.jpg" aqui.
    * Vazio ("") mostra suas iniciais no lugar.
