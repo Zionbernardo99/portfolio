@@ -19,10 +19,11 @@ export type Link = { rotulo: string; url: string; icone: "github" | "linkedin" |
 export type Experiencia = {
   empresa: string;
   cargo: string;
-  /** Ex.: "Mar 2024". */
+  /** Ex.: "Mar 2024". Vazio ("") mostra só o fim (ou "Atual"). */
   inicio: string;
   /** Deixe vazio ("") se você ainda trabalha lá — aparece "Atual". */
   fim: string;
+  /** Opcional: vazio ("") esconde. */
   local: string;
   descricao: string;
   conquistas: string[];
@@ -103,11 +104,11 @@ export const perfil = {
   disponivel: true,
   /** Coloque o PDF em `public/curriculo.pdf`. Vazio ("") esconde o botão. */
   curriculo: "",
-  email: "seuemail@exemplo.com", // EXEMPLO
+  email: "zionbernardo@gmail.com",
   links: [
     { rotulo: "GitHub", url: "https://github.com/Zionbernardo99", icone: "github" },
-    { rotulo: "LinkedIn", url: "https://www.linkedin.com/", icone: "linkedin" }, // EXEMPLO
-    { rotulo: "Instagram", url: "https://www.instagram.com/", icone: "instagram" }, // EXEMPLO
+    { rotulo: "LinkedIn", url: "https://www.linkedin.com/in/zion-bernardo/", icone: "linkedin" },
+    { rotulo: "Instagram", url: "https://www.instagram.com/zionbernardo/", icone: "instagram" },
   ] satisfies Link[],
 };
 
@@ -115,6 +116,16 @@ export const perfil = {
 // ─── Onde trabalhei ───────────────────────────────────────────────────────
 
 export const experiencias: Experiencia[] = [
+  {
+    empresa: "Nex Soluções Digitais",
+    cargo: "Fundador",
+    inicio: "",
+    fim: "",
+    local: "",
+    descricao: "Minha empresa de soluções digitais.",
+    conquistas: [],
+    tecnologias: [],
+  },
   {
     empresa: "Lifelyst",
     cargo: "Fundador & Desenvolvedor Full Stack",
@@ -130,28 +141,7 @@ export const experiencias: Experiencia[] = [
     ],
     tecnologias: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Tailwind"],
   },
-  {
-    // EXEMPLO
-    empresa: "Empresa Exemplo Ltda",
-    cargo: "Desenvolvedor Front-end",
-    inicio: "Jan 2023",
-    fim: "Dez 2024",
-    local: "São Paulo, SP",
-    descricao: "Troque por uma frase sobre o que você fazia nessa empresa.",
-    conquistas: ["Uma conquista de que você se orgulha", "Outra entrega importante"],
-    tecnologias: ["React", "JavaScript", "CSS"],
-  },
-  {
-    // EXEMPLO
-    empresa: "Outra Empresa",
-    cargo: "Estagiário de Desenvolvimento",
-    inicio: "Mar 2022",
-    fim: "Dez 2022",
-    local: "Híbrido",
-    descricao: "Troque por uma frase sobre o seu estágio ou primeiro emprego.",
-    conquistas: ["O que você aprendeu ou construiu"],
-    tecnologias: ["HTML", "CSS", "JavaScript"],
-  },
+  // Para acrescentar outra empresa, copie um bloco { ... } acima e troque os textos.
 ];
 
 // ─── Projetos ─────────────────────────────────────────────────────────────
