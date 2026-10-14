@@ -86,8 +86,8 @@ export type Idioma = { nome: string; nivel: string; porcentagem: number };
 export const perfil = {
   nome: "Zion Bernardo",
   /** Usado para calcular a idade automaticamente (AAAA-MM-DD). */
-  nascimento: "2000-01-01", // EXEMPLO
-  cidade: "Sua cidade, Brasil", // EXEMPLO
+  nascimento: "2008-01-09",
+  cidade: "Florianópolis, SC",
   /**
    * Coloque sua foto em `public/foto.jpg` e escreva "/foto.jpg" aqui.
    * Vazio ("") mostra suas iniciais no lugar.
@@ -177,8 +177,8 @@ export const projetos: Projeto[] = [
   },
   {
     titulo: "Vagas Grupo ND",
-    resumo: "Portal de vagas do Grupo ND.",
-    descricao: "Portal de vagas do Grupo ND, no ar em vagas.grupond.com.br.",
+    resumo: "Portal de vagas que desenvolvi para o Grupo ND.",
+    descricao: "Desenvolvi o portal de vagas do Grupo ND, grupo de comunicação de Santa Catarina. Está no ar em vagas.grupond.com.br.",
     imagens: [],
     categoria: "Web",
     tecnologias: [],
@@ -240,7 +240,7 @@ export const idiomas: Idioma[] = [
 
 /** Os que saem das listas acima se atualizam sozinhos. */
 export const numeros = [
-  { valor: 3, sufixo: "+", rotulo: "anos programando" }, // EXEMPLO
+  { valor: 3, sufixo: "", rotulo: "anos programando" },
   { valor: projetos.length, sufixo: "", rotulo: projetos.length === 1 ? "projeto no ar" : "projetos no ar" },
   { valor: cursos.length, sufixo: "", rotulo: cursos.length === 1 ? "curso concluído" : "cursos concluídos" },
   { valor: linguagens.length + ferramentas.length, sufixo: "", rotulo: "tecnologias" },
