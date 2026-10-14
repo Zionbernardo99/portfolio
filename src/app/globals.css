@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+@theme {
+  --color-fundo: #07070c;
+  --color-superficie: #0e0e16;
+  --color-texto: #ececf3;
+  --color-suave: #9b9bb0;
+  --color-apagado: #5d5d72;
+  --color-borda: rgb(255 255 255 / 0.08);
+  --color-violeta: #8b5cf6;
+  --color-ciano: #22d3ee;
+  --color-rosa: #f472b6;
+
+  --font-display: var(--fonte-display), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--fonte-texto), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--fonte-mono), ui-monospace, monospace;
+
+  --animate-girar: girar 8s linear infinite;
+  --animate-faixa: faixa 40s linear infinite;
+  --animate-piscar: piscar 1s steps(1) infinite;
+
+  @keyframes girar {
+    to { transform: rotate(360deg); }
+  }
+  @keyframes faixa {
+    to { transform: translateX(-50%); }
+  }
+  @keyframes piscar {
+    50% { opacity: 0; }
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+  background: var(--color-fundo);
+}
+
+body {
+  background: var(--color-fundo);
+  color: var(--color-texto);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+::selection {
+  background: rgb(139 92 246 / 0.4);
+}
+
+section[id] {
+  scroll-margin-top: 5rem;
+}
+
+@utility texto-gradiente {
+  background: linear-gradient(110deg, var(--color-violeta), var(--color-ciano) 55%, var(--color-rosa));
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility vidro {
+  background: rgb(255 255 255 / 0.035);
+  border: 1px solid var(--color-borda);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* Faixa de ferramentas: some nas pontas em vez de cortar seco. */
+@utility mascara-lados {
+  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
