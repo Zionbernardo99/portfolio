@@ -202,6 +202,9 @@ function Detalhes({ projeto, fechar }: { projeto: Projeto; fechar: () => void })
   const [foto, setFoto] = useState(0);
   const [direcao, setDirecao] = useState(1);
   const total = projeto.imagens.length;
+  // Print de computador (deitado) pede uma galeria mais larga que print de
+  // celular (em pé). Descobre pelo tamanho real da primeira imagem que carrega.
+  const [deitada, setDeitada] = useState(false);
 
   const ir = useCallback(
     (passo: number) => {
@@ -244,7 +247,9 @@ function Detalhes({ projeto, fechar }: { projeto: Projeto; fechar: () => void })
         animate={{ opacity: 1, y: 0, scale: 1 }}
         exit={{ opacity: 0, y: 40, scale: 0.97 }}
         transition={{ type: "spring", stiffness: 260, damping: 28 }}
-        className="relative grid max-h-[92svh] w-full max-w-5xl overflow-y-auto rounded-t-3xl border border-borda bg-superficie shadow-2xl sm:rounded-3xl md:grid-cols-[1.1fr_1fr] md:overflow-hidden"
+        className={`relative grid max-h-[92svh] w-full overflow-y-auto rounded-t-3xl border border-borda bg-superficie shadow-2xl transition-[max-width] duration-300 sm:rounded-3xl md:overflow-hidden ${
+          deitada ? "max-w-6xl md:grid-cols-[1.7fr_1fr]" : "max-w-5xl md:grid-cols-[1.1fr_1fr]"
+        }`}
       >
         <button
           type="button"
@@ -256,7 +261,9 @@ function Detalhes({ projeto, fechar }: { projeto: Projeto; fechar: () => void })
         </button>
 
         {/* Galeria */}
-        <div className="relative flex min-h-[26rem] flex-col bg-black/40 md:min-h-[34rem]">
+        <div
+          className={`relative flex flex-col bg-black/40 md:min-h-[34rem] ${deitada ? "min-h-64" : "min-h-[26rem]"}`}
+        >
           <div className="relative flex-1 overflow-hidden">
             {total > 0 ? (
               <AnimatePresence initial={false} custom={direcao} mode="popLayout">
@@ -286,8 +293,9 @@ function Detalhes({ projeto, fechar }: { projeto: Projeto; fechar: () => void })
                       src={projeto.imagens[foto]}
                       alt={`${projeto.titulo} — imagem ${foto + 1}`}
                       fill
-                      sizes="(min-width: 768px) 560px, 100vw"
+                      sizes="(min-width: 768px) 720px, 100vw"
                       quality={85}
+                      onLoad={(e) => setDeitada(e.currentTarget.naturalWidth > e.currentTarget.naturalHeight)}
                       draggable={false}
                       className="object-contain"
                     />
@@ -331,7 +339,7 @@ function Detalhes({ projeto, fechar }: { projeto: Projeto; fechar: () => void })
                     setFoto(i);
                   }}
                   aria-label={`Ver imagem ${i + 1}`}
-                  className={`relative h-14 w-9 shrink-0 overflow-hidden rounded-md transition-all ${
+                  className={`relative shrink-0 overflow-hidden rounded-md transition-all ${deitada ? "h-10 w-16" : "h-14 w-9"} ${
                     i === foto ? "ring-2 ring-ciano" : "opacity-50 hover:opacity-90"
                   }`}
                 >
