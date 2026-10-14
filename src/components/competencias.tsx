@@ -20,7 +20,7 @@ export function Competencias() {
   return (
     <Secao
       id="competencias"
-      numero="06"
+      numero="07"
       rotulo="Competências"
       titulo={
         <>

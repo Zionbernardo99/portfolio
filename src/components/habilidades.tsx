@@ -4,7 +4,7 @@ import { motion } from "motion/react";
 import type { IconeMarca } from "@/lib/icones";
 import { Revelar, Secao } from "./ui";
 
-type Linguagem = { nome: string; nivel: number; svg: IconeMarca };
+type Linguagem = { nome: string; nivel: number; detalhe: string; svg: IconeMarca };
 type Ferramenta = { nome: string; svg: IconeMarca };
 
 export function Habilidades({ linguagens, ferramentas }: { linguagens: Linguagem[]; ferramentas: Ferramenta[] }) {
@@ -19,12 +19,23 @@ export function Habilidades({ linguagens, ferramentas }: { linguagens: Linguagem
         </>
       }
     >
-      <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+      <Revelar>
+        <p className="-mt-6 mb-10 max-w-2xl text-suave md:-mt-10">
+          Os níveis foram calculados a partir do meu código: quantas linhas escrevi, em quantos projetos e o que
+          está em produção.
+        </p>
+      </Revelar>
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {linguagens.map((l, i) => {
           const cor = l.svg?.cor ?? "#8b5cf6";
           return (
-            <Revelar key={l.nome} atraso={(i % 4) * 0.07}>
+            <Revelar key={l.nome} atraso={(i % 3) * 0.07}>
               <motion.div
+                // O cartão é quem "entra na tela": a barra começa com largura zero e,
+                // sozinha, nem sempre é detectada pelo navegador.
+                initial="oculto"
+                whileInView="visivel"
+                viewport={{ once: true }}
                 whileHover={{ y: -6 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
                 style={{ "--cor": cor } as React.CSSProperties}
@@ -51,12 +62,16 @@ export function Habilidades({ linguagens, ferramentas }: { linguagens: Linguagem
                   <motion.div
                     className="h-full origin-left rounded-full"
                     style={{ background: `linear-gradient(90deg, ${cor}, color-mix(in srgb, ${cor} 40%, white))`, width: `${l.nivel}%` }}
-                    initial={{ scaleX: 0 }}
-                    whileInView={{ scaleX: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.2 + (i % 4) * 0.07 }}
+                    variants={{
+                      oculto: { scaleX: 0 },
+                      visivel: {
+                        scaleX: 1,
+                        transition: { duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.2 + (i % 3) * 0.07 },
+                      },
+                    }}
                   />
                 </div>
+                <p className="relative mt-3 text-xs text-apagado">{l.detalhe}</p>
               </motion.div>
             </Revelar>
           );

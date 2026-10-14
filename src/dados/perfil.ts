@@ -5,9 +5,6 @@
  * acrescentar um projeto, um curso, uma empresa. O resto do código lê estas
  * listas e monta as seções (com as animações) sozinho.
  *
- * Os itens marcados com `// EXEMPLO` são de mentirinha: troque pelos seus
- * antes de publicar.
- *
  * Imagens: coloque os arquivos dentro de `public/` e escreva o caminho a
  * partir da barra. Ex.: `public/foto.jpg` vira "/foto.jpg".
  */
@@ -59,6 +56,8 @@ export type Habilidade = {
   icone: string;
   /** De 0 a 100. */
   nivel: number;
+  /** De onde saiu o nível: aparece embaixo da barra. */
+  detalhe: string;
 };
 
 export type Curso = {
@@ -81,6 +80,15 @@ export type Competencia = {
 
 export type Idioma = { nome: string; nivel: string; porcentagem: number };
 
+export type CapacidadeIa = {
+  titulo: string;
+  descricao: string;
+  icone: "chat" | "foto" | "json" | "regras" | "testes" | "custo" | "conteudo" | "agente";
+};
+
+/** Uma frase dita para a Lys e o que ela vira no app (a animação da seção de IA). */
+export type ExemploIa = { frase: string; tipo: string; valor: string; detalhe: string };
+
 // ─── Você ─────────────────────────────────────────────────────────────────
 
 export const perfil = {
@@ -94,12 +102,13 @@ export const perfil = {
    */
   foto: "/foto.webp",
   /** Frases que vão se alternando, digitadas, no topo do site. */
-  cargos: ["Desenvolvedor Full Stack", "Criador do Lifelyst", "Apaixonado por produto"],
+  cargos: ["Desenvolvedor Full Stack", "Analista de Infraestrutura", "Criador do Lifelyst", "IA aplicada a produtos"],
   apresentacao:
-    "Construo aplicações web completas — do banco de dados à última animação da interface — com foco em produtos que as pessoas usam de verdade.",
+    "Construo aplicações web completas — do banco de dados à última animação da interface, com IA onde ela ajuda — com foco em produtos que as pessoas usam de verdade.",
   sobre: [
     "Sou desenvolvedor e gosto de transformar ideias em produtos completos. Criei o Lifelyst, um organizador pessoal e familiar que cuida de tarefas, rotina, saúde, estudos, finanças e metas num lugar só.",
     "Trabalho principalmente com TypeScript, React e Next.js, e me sinto em casa em todas as camadas: modelagem de banco, APIs, pagamentos, notificações, PWA e publicação na Play Store.",
+    "Também coloco inteligência artificial em produção: a Lys, assistente do Lifelyst, entende o que você escreve, fala ou fotografa e transforma em ações no app.",
   ],
   disponivel: true,
   /** Coloque o PDF em `public/curriculo.pdf`. Vazio ("") esconde o botão. */
@@ -119,7 +128,7 @@ export const experiencias: Experiencia[] = [
   {
     empresa: "Grupo ND",
     cargo: "Analista de Infraestrutura",
-    inicio: "",
+    inicio: "Ago 2026",
     fim: "",
     local: "Florianópolis, SC",
     descricao: "Analista de Infraestrutura no maior grupo de comunicação de Santa Catarina.",
@@ -152,8 +161,9 @@ export const experiencias: Experiencia[] = [
       "Arquitetura completa com Next.js, Prisma e PostgreSQL",
       "Assinaturas com Mercado Pago e programa de indicação para criadores",
       "PWA com notificações push e modo offline",
+      "Lys, assistente com IA que entende texto, voz e foto de comprovante",
     ],
-    tecnologias: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Tailwind"],
+    tecnologias: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Tailwind", "OpenAI"],
   },
   // Para acrescentar outra empresa, copie um bloco { ... } acima e troque os textos.
 ];
@@ -165,7 +175,7 @@ export const projetos: Projeto[] = [
     titulo: "Lifelyst",
     resumo: "Organizador pessoal e familiar: seu dia inteiro em uma tela.",
     descricao:
-      "Afazeres, rotina, saúde, estudos, finanças, calendário e metas num app só, com espaço compartilhado para a família. Tem assinatura paga, notificações push, funciona offline e está publicado na Google Play.",
+      "Afazeres, rotina, saúde, estudos, finanças, calendário e metas num app só, com espaço compartilhado para a família. Tem a Lys, uma assistente com IA: você escreve, fala ou manda a foto de um comprovante e ela registra a despesa, a tarefa ou o compromisso. Tem assinatura paga, notificações push, funciona offline e está publicado na Google Play.",
     imagens: [
       "/projetos/lifelyst/inicio.webp",
       "/projetos/lifelyst/financas.webp",
@@ -175,7 +185,7 @@ export const projetos: Projeto[] = [
       "/projetos/lifelyst/metas.webp",
     ],
     categoria: "Web & Mobile",
-    tecnologias: ["Next.js 16", "React 19", "TypeScript", "Tailwind", "Prisma", "PostgreSQL", "Vercel"],
+    tecnologias: ["Next.js 16", "React 19", "TypeScript", "Tailwind", "Prisma", "PostgreSQL", "OpenAI", "Vercel"],
     ano: "2025",
     link: "https://lifelyst.com.br",
     destaque: true,
@@ -193,7 +203,7 @@ export const projetos: Projeto[] = [
       "/projetos/nex/mercado.webp",
     ],
     categoria: "Web",
-    tecnologias: ["HTML", "CSS", "JavaScript", "Cloudflare"],
+    tecnologias: ["HTML", "CSS", "JavaScript", "Cloudflare Workers", "Python"],
     link: "https://nexsolucoesdigitais.com.br/",
   },
   {
@@ -215,29 +225,104 @@ export const projetos: Projeto[] = [
 
 // ─── Linguagens e ferramentas ─────────────────────────────────────────────
 
+/**
+ * Os níveis não são chute: saíram do código dos seus repositórios (Lifelyst,
+ * Nex, portfólio e estudos) — quantas linhas, em quantos projetos e se está
+ * em produção. Atualize quando o código crescer.
+ */
 export const linguagens: Habilidade[] = [
-  { nome: "TypeScript", icone: "typescript", nivel: 90 },
-  { nome: "JavaScript", icone: "javascript", nivel: 90 },
-  { nome: "React", icone: "react", nivel: 88 },
-  { nome: "Next.js", icone: "nextdotjs", nivel: 85 },
-  { nome: "HTML", icone: "html5", nivel: 92 },
-  { nome: "CSS", icone: "css", nivel: 85 },
-  { nome: "Node.js", icone: "nodedotjs", nivel: 78 },
-  { nome: "SQL / PostgreSQL", icone: "postgresql", nivel: 72 },
-  { nome: "Python", icone: "python", nivel: 60 }, // EXEMPLO
+  { nome: "TypeScript", icone: "typescript", nivel: 92, detalhe: "≈ 87 mil linhas no Lifelyst" },
+  { nome: "React", icone: "react", nivel: 90, detalhe: "≈ 270 telas e componentes" },
+  { nome: "Next.js", icone: "nextdotjs", nivel: 88, detalhe: "App Router, server actions e cron" },
+  { nome: "JavaScript", icone: "javascript", nivel: 86, detalhe: "≈ 14 mil linhas · Nex e scripts" },
+  { nome: "HTML", icone: "html5", nivel: 86, detalhe: "Sites da Nex e do Grupo ND" },
+  { nome: "CSS", icone: "css", nivel: 84, detalhe: "Tailwind + ≈ 4 mil linhas à mão" },
+  { nome: "Node.js", icone: "nodedotjs", nivel: 80, detalhe: "APIs e 40 scripts de automação" },
+  { nome: "SQL · PostgreSQL", icone: "postgresql", nivel: 74, detalhe: "≈ 2 mil linhas de modelo no Prisma" },
+  { nome: "Python", icone: "python", nivel: 45, detalhe: "Scripts que automatizam a Nex" },
 ];
 
 /** Aparecem na faixa que desliza sozinha. */
 export const ferramentas = [
   { nome: "Tailwind CSS", icone: "tailwindcss" },
   { nome: "Prisma", icone: "prisma" },
+  { nome: "Zod", icone: "zod" },
   { nome: "Git", icone: "git" },
   { nome: "GitHub", icone: "github" },
   { nome: "Vercel", icone: "vercel" },
-  { nome: "Figma", icone: "figma" },
-  { nome: "Docker", icone: "docker" },
-  { nome: "Firebase", icone: "firebase" },
+  { nome: "Cloudflare", icone: "cloudflare" },
+  { nome: "Vite", icone: "vite" },
+  { nome: "Google Play", icone: "googleplay" },
+  { nome: "Mercado Pago", icone: "mercadopago" },
+  { nome: "Claude Code", icone: "claude" },
 ];
+
+// ─── Inteligência artificial ──────────────────────────────────────────────
+
+export const ia = {
+  resumo:
+    "Não é só usar o ChatGPT: eu construo produtos com IA. No Lifelyst, a Lys entende texto, voz e foto e vira ação no app — com saída validada, testes automáticos e custo sob controle.",
+  /** Frases que a animação vai "digitando" para a Lys. */
+  exemplos: [
+    { frase: "gastei 48 no mercado no pix", tipo: "Despesa", valor: "R$ 48,00", detalhe: "Mercado · Pix" },
+    { frase: "dentista quinta às 15h", tipo: "Compromisso", valor: "Quinta, 15:00", detalhe: "Dentista" },
+    { frase: "comprei um tênis de 600 em 3x", tipo: "Parcelado", valor: "3× R$ 200,00", detalhe: "Tênis · Compras" },
+    { frase: "bebi dois copos de água", tipo: "Água", valor: "+ 500 ml", detalhe: "Saúde · hoje" },
+  ] satisfies ExemploIa[],
+  capacidades: [
+    {
+      titulo: "Assistente em linguagem natural",
+      descricao: "A Lys transforma uma frase, digitada ou falada, em despesa, tarefa, evento, meta ou relatório.",
+      icone: "chat",
+    },
+    {
+      titulo: "Leitura de comprovantes",
+      descricao: "Manda a foto do recibo e a IA lê valor, loja e data para criar a despesa sozinha.",
+      icone: "foto",
+    },
+    {
+      titulo: "Saída estruturada",
+      descricao: "O modelo responde em JSON, conferido com Zod. As contas ficam com o banco, nunca com a IA.",
+      icone: "json",
+    },
+    {
+      titulo: "Regras antes do modelo",
+      descricao: "Saudações, correções e perguntas simples se resolvem no código, sem gastar uma chamada.",
+      icone: "regras",
+    },
+    {
+      titulo: "IA testada",
+      descricao: "≈ 160 frases de teste, placar de acertos contra o provedor e testes no navegador.",
+      icone: "testes",
+    },
+    {
+      titulo: "Custo sob controle",
+      descricao: "Cada chamada registrada com o preço do modelo, limite por plano e alerta de crédito.",
+      icone: "custo",
+    },
+    {
+      titulo: "Conteúdo automático",
+      descricao: "Todo dia a IA pesquisa tendências na web e escreve posts para o Instagram, que eu aprovo.",
+      icone: "conteudo",
+    },
+    {
+      titulo: "Programo com agentes",
+      descricao: "Uso agentes de IA, como o Claude Code, no dia a dia — e reviso tudo o que eles escrevem.",
+      icone: "agente",
+    },
+  ] satisfies CapacidadeIa[],
+  tecnicas: [
+    "OpenAI · GPT-5",
+    "Anthropic · Claude",
+    "Google Gemini",
+    "Engenharia de prompt",
+    "JSON + Zod",
+    "Visão (imagens)",
+    "Voz no navegador",
+    "Busca na web",
+    "Adaptador multi-provedor",
+  ],
+};
 
 // ─── Cursos e certificados ────────────────────────────────────────────────
 

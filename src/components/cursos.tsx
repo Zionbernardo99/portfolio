@@ -8,7 +8,7 @@ export function Cursos() {
   return (
     <Secao
       id="cursos"
-      numero="05"
+      numero="06"
       rotulo="Formação"
       titulo={
         <>

@@ -15,8 +15,7 @@ Abre em http://localhost:3000.
 
 **Tudo** o que aparece no site está em [`src/dados/perfil.ts`](src/dados/perfil.ts):
 nome, data de nascimento (a idade é calculada sozinha), cidade, foto, empresas,
-projetos, linguagens, cursos, competências, idiomas e links. As linhas marcadas com
-`// EXEMPLO` são de mentirinha — troque antes de publicar.
+projetos, linguagens, IA, cursos, competências, idiomas e links.
 
 | Quero… | Faço… |
 |---|---|
@@ -31,7 +30,7 @@ projetos, linguagens, cursos, competências, idiomas e links. As linhas marcadas
 Início (foto, nome animado, idade, cargos digitados) · Sobre (números que contam) ·
 Experiência (linha do tempo que se desenha ao rolar) · Projetos (filtros, cards 3D e
 galeria com setas/arrastar/teclado) · Habilidades (barras animadas e faixa de
-ferramentas) · Cursos · Competências e idiomas · Contato (copiar e-mail).
+ferramentas) · IA (a Lys "atendendo" frases ao vivo) · Cursos · Competências e idiomas · Contato (copiar e-mail).
 
 Quem tem "reduzir movimento" ligado no sistema recebe o site sem as animações de deslocamento.
 

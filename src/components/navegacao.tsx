@@ -10,6 +10,7 @@ export const secoes = [
   { id: "experiencia", rotulo: "Experiência" },
   { id: "projetos", rotulo: "Projetos" },
   { id: "habilidades", rotulo: "Habilidades" },
+  { id: "ia", rotulo: "IA" },
   { id: "cursos", rotulo: "Cursos" },
   { id: "competencias", rotulo: "Competências" },
   { id: "contato", rotulo: "Contato" },

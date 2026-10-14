@@ -5,6 +5,7 @@ import { Experiencias } from "@/components/experiencias";
 import { Fundo } from "@/components/fundo";
 import { Habilidades } from "@/components/habilidades";
 import { Hero } from "@/components/hero";
+import { InteligenciaArtificial } from "@/components/inteligencia-artificial";
 import { Movimento } from "@/components/movimento";
 import { Navegacao } from "@/components/navegacao";
 import { Projetos } from "@/components/projetos";
@@ -23,9 +24,10 @@ export default function Pagina() {
         <Experiencias />
         <Projetos />
         <Habilidades
-          linguagens={linguagens.map((l) => ({ nome: l.nome, nivel: l.nivel, svg: iconeMarca(l.icone) }))}
+          linguagens={linguagens.map((l) => ({ nome: l.nome, nivel: l.nivel, detalhe: l.detalhe, svg: iconeMarca(l.icone) }))}
           ferramentas={ferramentas.map((f) => ({ nome: f.nome, svg: iconeMarca(f.icone) }))}
         />
+        <InteligenciaArtificial />
         <Cursos />
         <Competencias />
         <Contato />
