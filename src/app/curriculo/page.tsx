@@ -74,7 +74,7 @@ export default function Curriculo() {
             {perfil.nomeCompleto}
           </h1>
           <p className="mt-0.5 font-display text-[12pt] font-medium text-violet-700">
-            Desenvolvedor Full Stack · Analista de Infraestrutura
+            {perfil.cargos[0]} · Analista de Infraestrutura
           </p>
           <ul className="mt-2.5 flex flex-wrap gap-x-3 gap-y-0.5 text-[9pt] text-zinc-500">
             {contatos.map((c, i) => (

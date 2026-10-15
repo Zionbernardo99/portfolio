@@ -115,12 +115,12 @@ export const perfil = {
    */
   foto: "/foto.webp",
   /** Frases que vão se alternando, digitadas, no topo do site. */
-  cargos: ["Desenvolvedor Full Stack", "Analista de Infraestrutura", "Criador do Lifelyst", "IA aplicada a produtos"],
+  cargos: ["Desenvolvedor Web", "Analista de Infraestrutura", "Criador do Lifelyst", "IA aplicada a produtos"],
   apresentacao:
-    "Construo aplicações web completas — do banco de dados à última animação da interface, com IA onde ela ajuda — com foco em produtos que as pessoas usam de verdade.",
+    "Crio aplicações web usando a IA como ferramenta — da ideia ao produto no ar — com foco em coisas que as pessoas usam de verdade.",
   sobre: [
     "Cresci acompanhando de perto a HSystem, startup de software fundada pelo meu pai e vendida em 2024 para um grande grupo de turismo. Foi ali que entendi como um produto de software nasce e cresce.",
-    "Sou Analista de Infraestrutura no Grupo ND, tenho minha própria empresa, a Nex, e criei o Lifelyst, um organizador pessoal e familiar. Trabalho principalmente com TypeScript, React e Next.js, em todas as camadas: banco de dados, APIs, pagamentos, notificações e publicação na Play Store.",
+    "Sou Analista de Infraestrutura no Grupo ND, tenho minha própria empresa, a Nex, e criei o Lifelyst, um organizador pessoal e familiar. Trabalho principalmente com TypeScript, React e Next.js, e uso agentes de IA para ir mais longe: no Lifelyst já passei por banco de dados, APIs, pagamentos, notificações e publicação na Play Store.",
     "Também coloco inteligência artificial em produção: a Lys, assistente do Lifelyst, entende o que você escreve, fala ou fotografa e transforma em ações no app.",
   ],
   /** Selo verde no topo do site, com o que você faz hoje. Vazio ("") esconde. */
@@ -169,7 +169,7 @@ export const experiencias: Experiencia[] = [
   },
   {
     empresa: "Lifelyst",
-    cargo: "Fundador & Desenvolvedor Full Stack",
+    cargo: "Fundador & Desenvolvedor",
     inicio: "2025",
     fim: "",
     local: "Remoto",
@@ -361,7 +361,6 @@ export const cursos: Curso[] = [
   { nome: "Curso Python e Django Completo", instituicao: "Udemy" },
   { nome: "Administrando Banco de Dados", instituicao: "Fundação Bradesco" },
   { nome: "Análise de Dados no Power BI", instituicao: "Fundação Bradesco" },
-  { nome: "Como Conseguir um Novo Emprego", instituicao: "Fundação Bradesco", ano: "2026" },
 ];
 
 // ─── Outras competências ──────────────────────────────────────────────────
@@ -384,7 +383,7 @@ export const idiomas: Idioma[] = [
 
 /** Os que saem das listas acima se atualizam sozinhos. */
 export const numeros = [
-  { valor: 3, sufixo: "", rotulo: "anos programando" },
+  { valor: 2, sufixo: "", rotulo: "anos programando" },
   { valor: projetos.length, sufixo: "", rotulo: projetos.length === 1 ? "projeto no ar" : "projetos no ar" },
   { valor: cursos.length, sufixo: "", rotulo: cursos.length === 1 ? "curso concluído" : "cursos concluídos" },
   { valor: linguagens.length + ferramentas.length, sufixo: "", rotulo: "tecnologias" },

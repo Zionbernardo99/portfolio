@@ -217,7 +217,7 @@ function Foto() {
         </div>
 
         <Flutuante className="-top-4 -left-6 sm:-left-10" atraso={0}>
-          <span className="font-mono text-ciano">{"</>"}</span> Full Stack
+          <span className="font-mono text-ciano">{"</>"}</span> Dev Web
         </Flutuante>
         <Flutuante className="top-1/2 -right-6 sm:-right-12" atraso={1.2}>
           <span className="text-violeta">▲</span> Next.js
