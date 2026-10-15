@@ -24,7 +24,7 @@ export default function Pagina() {
         <Experiencias />
         <Projetos />
         <Habilidades
-          linguagens={linguagens.map((l) => ({ nome: l.nome, nivel: l.nivel, detalhe: l.detalhe, svg: iconeMarca(l.icone) }))}
+          linguagens={linguagens.map((l) => ({ nome: l.nome, uso: l.uso, detalhe: l.detalhe, svg: iconeMarca(l.icone) }))}
           ferramentas={ferramentas.map((f) => ({ nome: f.nome, svg: iconeMarca(f.icone) }))}
         />
         <InteligenciaArtificial />

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Download } from "lucide-react";
 import Link from "next/link";
+import { Fragment } from "react";
 import {
   competencias,
   cursos,
@@ -12,6 +13,8 @@ import {
   linguagens,
   perfil,
   projetos,
+  rotulosUso,
+  type Uso,
 } from "@/dados/perfil";
 
 /**
@@ -44,7 +47,6 @@ export default function Curriculo() {
     github && { texto: semProtocolo(github.url), href: github.url },
   ].filter(Boolean) as { texto: string; href?: string }[];
 
-  const linguagensTexto = lista(linguagens.map((l) => l.nome));
   const ferramentasTexto = lista(ferramentas.map((f) => f.nome));
 
   return (
@@ -154,8 +156,12 @@ export default function Curriculo() {
 
         <Bloco titulo="Habilidades técnicas">
           <dl className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-1">
-            <dt className="font-semibold text-zinc-900">Linguagens e frameworks</dt>
-            <dd>{linguagensTexto}</dd>
+            {(Object.keys(rotulosUso) as Uso[]).map((u) => (
+              <Fragment key={u}>
+                <dt className="font-semibold text-zinc-900">{rotulosUso[u].texto}</dt>
+                <dd>{lista(linguagens.filter((l) => l.uso === u).map((l) => l.nome))}</dd>
+              </Fragment>
+            ))}
             <dt className="font-semibold text-zinc-900">Ferramentas</dt>
             <dd>{ferramentasTexto}</dd>
             <dt className="font-semibold text-zinc-900">Outros</dt>

@@ -46,6 +46,14 @@ export type Projeto = {
   destaque?: boolean;
 };
 
+export type Uso = "dia-a-dia" | "projeto" | "estudando";
+
+export const rotulosUso: Record<Uso, { texto: string; etapas: number }> = {
+  "dia-a-dia": { texto: "Uso no dia a dia", etapas: 3 },
+  projeto: { texto: "Já usei em projeto", etapas: 2 },
+  estudando: { texto: "Estudando", etapas: 1 },
+};
+
 export type Habilidade = {
   nome: string;
   /**
@@ -54,9 +62,9 @@ export type Habilidade = {
    * existir, aparecem as iniciais.
    */
   icone: string;
-  /** De 0 a 100. */
-  nivel: number;
-  /** De onde saiu o nível: aparece embaixo da barra. */
+  /** Quanto você usa: aparece como rótulo e num medidor de 3 etapas. */
+  uso: Uso;
+  /** Onde você usa: aparece embaixo do medidor. */
   detalhe: string;
 };
 
@@ -244,20 +252,20 @@ export const projetos: Projeto[] = [
 // ─── Linguagens e ferramentas ─────────────────────────────────────────────
 
 /**
- * Os níveis não são chute: saíram do código dos seus repositórios (Lifelyst,
- * Nex, portfólio e estudos) — quantas linhas, em quantos projetos e se está
- * em produção. Atualize quando o código crescer.
+ * Sem porcentagem: "92%" não tem régua e vira pergunta difícil em entrevista.
+ * Cada linguagem diz o quanto você usa e onde — o que qualquer pessoa pode
+ * conferir nos seus projetos.
  */
 export const linguagens: Habilidade[] = [
-  { nome: "TypeScript", icone: "typescript", nivel: 92, detalhe: "≈ 87 mil linhas no Lifelyst" },
-  { nome: "React", icone: "react", nivel: 90, detalhe: "≈ 270 telas e componentes" },
-  { nome: "Next.js", icone: "nextdotjs", nivel: 88, detalhe: "App Router, server actions e cron" },
-  { nome: "JavaScript", icone: "javascript", nivel: 86, detalhe: "≈ 14 mil linhas · Nex e scripts" },
-  { nome: "HTML", icone: "html5", nivel: 86, detalhe: "Sites da Nex e do Grupo ND" },
-  { nome: "CSS", icone: "css", nivel: 84, detalhe: "Tailwind + ≈ 4 mil linhas à mão" },
-  { nome: "Node.js", icone: "nodedotjs", nivel: 80, detalhe: "APIs e 40 scripts de automação" },
-  { nome: "SQL · PostgreSQL", icone: "postgresql", nivel: 74, detalhe: "≈ 2 mil linhas de modelo no Prisma" },
-  { nome: "Python", icone: "python", nivel: 55, detalhe: "Curso de Python e Django + scripts da Nex" },
+  { nome: "TypeScript", icone: "typescript", uso: "dia-a-dia", detalhe: "Lifelyst e este portfólio" },
+  { nome: "React", icone: "react", uso: "dia-a-dia", detalhe: "Telas do Lifelyst e deste site" },
+  { nome: "Next.js", icone: "nextdotjs", uso: "dia-a-dia", detalhe: "Lifelyst e este portfólio" },
+  { nome: "JavaScript", icone: "javascript", uso: "dia-a-dia", detalhe: "Sites e painel da Nex" },
+  { nome: "HTML", icone: "html5", uso: "dia-a-dia", detalhe: "Sites da Nex e do Grupo ND" },
+  { nome: "CSS", icone: "css", uso: "dia-a-dia", detalhe: "Tailwind no Lifelyst, CSS puro na Nex" },
+  { nome: "Node.js", icone: "nodedotjs", uso: "projeto", detalhe: "APIs e scripts do Lifelyst" },
+  { nome: "SQL · PostgreSQL", icone: "postgresql", uso: "projeto", detalhe: "PostgreSQL com Prisma no Lifelyst" },
+  { nome: "Python", icone: "python", uso: "estudando", detalhe: "Curso de Python e Django + scripts da Nex" },
 ];
 
 /** Aparecem na faixa que desliza sozinha. */

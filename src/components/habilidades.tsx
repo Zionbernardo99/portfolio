@@ -1,10 +1,11 @@
 "use client";
 
 import { motion } from "motion/react";
+import { rotulosUso, type Uso } from "@/dados/perfil";
 import type { IconeMarca } from "@/lib/icones";
 import { Revelar, Secao } from "./ui";
 
-type Linguagem = { nome: string; nivel: number; detalhe: string; svg: IconeMarca };
+type Linguagem = { nome: string; uso: Uso; detalhe: string; svg: IconeMarca };
 type Ferramenta = { nome: string; svg: IconeMarca };
 
 export function Habilidades({ linguagens, ferramentas }: { linguagens: Linguagem[]; ferramentas: Ferramenta[] }) {
@@ -20,10 +21,14 @@ export function Habilidades({ linguagens, ferramentas }: { linguagens: Linguagem
       }
     >
       <Revelar>
-        <p className="-mt-6 mb-10 max-w-2xl text-suave md:-mt-10">
-          Os níveis foram calculados a partir do meu código: quantas linhas escrevi, em quantos projetos e o que
-          está em produção.
-        </p>
+        <div className="-mt-6 mb-10 flex flex-wrap gap-x-6 gap-y-2 text-sm text-suave md:-mt-10">
+          {(Object.keys(rotulosUso) as Uso[]).map((u) => (
+            <span key={u} className="inline-flex items-center gap-2.5">
+              <Medidor etapas={rotulosUso[u].etapas} cor="#8b5cf6" estatico />
+              {rotulosUso[u].texto}
+            </span>
+          ))}
+        </div>
       </Revelar>
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {linguagens.map((l, i) => {
@@ -31,8 +36,7 @@ export function Habilidades({ linguagens, ferramentas }: { linguagens: Linguagem
           return (
             <Revelar key={l.nome} atraso={(i % 3) * 0.07}>
               <motion.div
-                // O cartão é quem "entra na tela": a barra começa com largura zero e,
-                // sozinha, nem sempre é detectada pelo navegador.
+                // O cartão é quem "entra na tela" e acende o medidor lá dentro.
                 initial="oculto"
                 whileInView="visivel"
                 viewport={{ once: true }}
@@ -55,21 +59,13 @@ export function Habilidades({ linguagens, ferramentas }: { linguagens: Linguagem
                   </span>
                   <span className="min-w-0">
                     <span className="block truncate font-medium">{l.nome}</span>
-                    <span className="font-mono text-xs text-apagado">{l.nivel}%</span>
+                    <span className="text-xs" style={{ color: `color-mix(in srgb, ${cor} 70%, white)` }}>
+                      {rotulosUso[l.uso].texto}
+                    </span>
                   </span>
                 </div>
-                <div className="relative mt-4 h-1.5 overflow-hidden rounded-full bg-white/[0.06]">
-                  <motion.div
-                    className="h-full origin-left rounded-full"
-                    style={{ background: `linear-gradient(90deg, ${cor}, color-mix(in srgb, ${cor} 40%, white))`, width: `${l.nivel}%` }}
-                    variants={{
-                      oculto: { scaleX: 0 },
-                      visivel: {
-                        scaleX: 1,
-                        transition: { duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.2 + (i % 3) * 0.07 },
-                      },
-                    }}
-                  />
+                <div className="relative mt-4">
+                  <Medidor etapas={rotulosUso[l.uso].etapas} cor={cor} atraso={0.2 + (i % 3) * 0.07} />
                 </div>
                 <p className="relative mt-3 text-xs text-apagado">{l.detalhe}</p>
               </motion.div>
@@ -98,6 +94,31 @@ export function Habilidades({ linguagens, ferramentas }: { linguagens: Linguagem
         </Revelar>
       )}
     </Secao>
+  );
+}
+
+/** Três tracinhos que acendem um a um: 3 = dia a dia, 2 = já usei, 1 = estudando. */
+function Medidor({ etapas, cor, atraso = 0, estatico }: { etapas: number; cor: string; atraso?: number; estatico?: boolean }) {
+  return (
+    <span aria-hidden className={`grid grid-cols-3 gap-1.5 ${estatico ? "w-10" : "w-full"}`}>
+      {[0, 1, 2].map((n) => (
+        <span key={n} className={`overflow-hidden rounded-full bg-white/[0.07] ${estatico ? "h-1" : "h-1.5"}`}>
+          {n < etapas &&
+            (estatico ? (
+              <span className="block size-full rounded-full" style={{ background: cor }} />
+            ) : (
+              <motion.span
+                className="block size-full origin-left rounded-full"
+                style={{ background: `linear-gradient(90deg, ${cor}, color-mix(in srgb, ${cor} 55%, white))` }}
+                variants={{
+                  oculto: { scaleX: 0 },
+                  visivel: { scaleX: 1, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: atraso + n * 0.18 } },
+                }}
+              />
+            ))}
+        </span>
+      ))}
+    </span>
   );
 }
 
