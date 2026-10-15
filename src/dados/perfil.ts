@@ -102,6 +102,8 @@ export type ExemploIa = { frase: string; tipo: string; valor: string; detalhe: s
 
 export const perfil = {
   nome: "Zion Bernardo",
+  /** Usado no currículo em PDF. */
+  nomeCompleto: "Zion Bernardo dos Santos",
   /** Usado para calcular a idade automaticamente (AAAA-MM-DD). */
   nascimento: "2008-01-09",
   cidade: "Florianópolis, SC",
@@ -122,8 +124,12 @@ export const perfil = {
     "Também coloco inteligência artificial em produção: a Lys, assistente do Lifelyst, entende o que você escreve, fala ou fotografa e transforma em ações no app.",
   ],
   disponivel: true,
-  /** Coloque o PDF em `public/curriculo.pdf`. Vazio ("") esconde o botão. */
-  curriculo: "",
+  /**
+   * O PDF do botão "Baixar currículo". Ele é a página /curriculo impressa:
+   * abra o site, vá em /curriculo, Ctrl+P → "Salvar como PDF" e substitua o
+   * arquivo em `public/`. Vazio ("") esconde o botão.
+   */
+  curriculo: "/Curriculo-Zion-Bernardo.pdf",
   email: "zionbernardo@gmail.com",
   links: [
     { rotulo: "GitHub", url: "https://github.com/Zionbernardo99", icone: "github" },
@@ -144,7 +150,7 @@ export const experiencias: Experiencia[] = [
     local: "Florianópolis, SC",
     descricao: "Analista de Infraestrutura no maior grupo de comunicação de Santa Catarina.",
     conquistas: ["Desenvolvi o portal de carreiras do grupo (vagas.grupond.com.br)"],
-    tecnologias: [],
+    tecnologias: ["React", "Vite"],
   },
   {
     empresa: "Nex Soluções Digitais",
@@ -158,7 +164,7 @@ export const experiencias: Experiencia[] = [
       "Pedidos pelo WhatsApp e Pix, agendamento e painel do lojista",
       "Atendimento presencial: visita, fotos e cadastro na loja do cliente",
     ],
-    tecnologias: ["HTML", "CSS", "JavaScript"],
+    tecnologias: ["HTML", "CSS", "JavaScript", "Cloudflare Workers", "Python"],
   },
   {
     empresa: "Lifelyst",

@@ -20,7 +20,7 @@ projetos, linguagens, IA, cursos, competências, idiomas e links.
 | Quero… | Faço… |
 |---|---|
 | Pôr minha foto | Salvo em `public/foto.jpg` e escrevo `foto: "/foto.jpg"` |
-| Pôr o currículo em PDF | Salvo em `public/curriculo.pdf` e escrevo `curriculo: "/curriculo.pdf"` — aparece o botão "Baixar currículo" |
+| Atualizar o currículo em PDF | Ele sai dos mesmos dados: abro `/curriculo` no navegador, Ctrl+P → "Salvar como PDF" e substituo `public/Curriculo-Zion-Bernardo.pdf` |
 | Adicionar fotos de um projeto | Salvo em `public/projetos/<nome>/` e listo os caminhos em `imagens` |
 | Adicionar uma linguagem | Acrescento em `linguagens`; o `icone` é o nome dela em [simpleicons.org](https://simpleicons.org) |
 | Destacar um projeto | `destaque: true` — ele ganha um card largo |
