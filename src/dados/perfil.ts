@@ -125,7 +125,7 @@ export const perfil = {
   /** Frases que vão se alternando, digitadas, no topo do site. */
   cargos: ["Desenvolvedor Web", "Analista de Infraestrutura", "Criador do Lifelyst", "IA aplicada a produtos"],
   apresentacao:
-    "Crio aplicações web usando a IA como ferramenta — da ideia ao produto no ar — com foco em coisas que as pessoas usam de verdade.",
+    "Crio aplicações web usando a IA como ferramenta, da ideia ao produto no ar, com foco em coisas que as pessoas usam de verdade.",
   sobre: [
     "Cresci acompanhando de perto a HSystem, startup de software fundada pelo meu pai e vendida em 2024 para um grande grupo de turismo. Foi ali que entendi como um produto de software nasce e cresce.",
     "Sou Analista de Infraestrutura no Grupo ND, tenho minha própria empresa, a Nex, e criei o Lifelyst, um organizador pessoal e familiar. Trabalho principalmente com TypeScript, React e Next.js, e uso agentes de IA para ir mais longe: no Lifelyst já passei por banco de dados, APIs, pagamentos, notificações e publicação na Play Store.",
@@ -236,7 +236,7 @@ export const projetos: Projeto[] = [
     titulo: "Carreiras Grupo ND",
     resumo: "Portal de vagas que desenvolvi para o maior grupo de comunicação de Santa Catarina.",
     descricao:
-      "Portal de carreiras das 11 marcas do Grupo ND, como NDTV e ND+. O candidato filtra as vagas por área, cidade e modelo de trabalho, se candidata e acompanha cada etapa pelo portal, entra no banco de talentos e pode receber as vagas novas por e-mail.",
+      "Portal de carreiras das 11 marcas do Grupo ND, como NDTV e ND+. O candidato filtra as vagas por área, cidade e modelo de trabalho, se candidata e acompanha cada etapa pelo portal, entra no banco de talentos e pode receber as vagas novas por email.",
     imagens: [
       "/projetos/grupo-nd/inicio.webp",
       "/projetos/grupo-nd/vagas.webp",
@@ -290,7 +290,7 @@ export const ferramentas = [
 
 export const ia = {
   resumo:
-    "Não é só usar o ChatGPT: eu construo produtos com IA. No Lifelyst, a Lys entende texto, voz e foto e vira ação no app — com saída validada, testes automáticos e custo sob controle.",
+    "Não é só usar o ChatGPT: eu construo produtos com IA. No Lifelyst, a Lys entende texto, voz e foto e vira ação no app, com saída validada, testes automáticos e custo sob controle.",
   /** Frases que a animação vai "digitando" para a Lys. */
   exemplos: [
     { frase: "gastei 48 no mercado no pix", tipo: "Despesa", valor: "R$ 48,00", detalhe: "Mercado · Pix" },
@@ -336,7 +336,7 @@ export const ia = {
     },
     {
       titulo: "Programo com agentes",
-      descricao: "Uso agentes de IA, como o Claude Code, no dia a dia — e reviso tudo o que eles escrevem.",
+      descricao: "Uso agentes de IA, como o Claude Code, no dia a dia, e reviso tudo o que eles escrevem.",
       icone: "agente",
     },
   ] satisfies CapacidadeIa[],
@@ -349,7 +349,7 @@ export const ia = {
     "Visão (imagens)",
     "Voz no navegador",
     "Busca na web",
-    "Adaptador multi-provedor",
+    "Adaptador multiprovedor",
   ],
 };
 

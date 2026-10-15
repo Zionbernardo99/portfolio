@@ -44,7 +44,7 @@ export function Contato() {
                 href={`mailto:${perfil.email}`}
                 className="inline-flex h-13 items-center gap-2.5 rounded-full bg-gradient-to-r from-violeta to-ciano px-7 font-medium text-white shadow-lg shadow-violeta/30 transition-transform hover:scale-[1.03]"
               >
-                <Mail className="size-5" /> Mandar e-mail
+                <Mail className="size-5" /> Mandar email
               </a>
               <button
                 type="button"

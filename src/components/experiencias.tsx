@@ -55,8 +55,13 @@ export function Experiencias() {
                 className={`pl-12 md:pl-0 ${direita ? "md:col-start-2" : "md:col-start-1 md:text-right"}`}
               >
                 <p className={`mb-3 font-mono text-xs text-ciano ${direita ? "" : "md:pr-1"}`}>
-                  {exp.inicio && <>{exp.inicio} — </>}
-                  {exp.fim || <span className="text-emerald-400">Atual</span>}
+                  {exp.inicio ? (
+                    <>
+                      {exp.inicio} até {exp.fim || <span className="text-emerald-400">hoje</span>}
+                    </>
+                  ) : (
+                    exp.fim || <span className="text-emerald-400">Atual</span>
+                  )}
                 </p>
                 <CartaoBrilho className="p-6 text-left">
                   <h3 className="font-display text-xl font-semibold">{exp.cargo}</h3>

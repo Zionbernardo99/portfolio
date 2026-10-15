@@ -9,7 +9,7 @@ const mono = JetBrains_Mono({ subsets: ["latin"], variable: "--fonte-mono" });
 
 export const metadata: Metadata = {
   metadataBase: new URL(perfil.site),
-  title: `${perfil.nome} — ${perfil.cargos[0]}`,
+  title: `${perfil.nome} · ${perfil.cargos[0]}`,
   description: perfil.apresentacao,
   openGraph: {
     title: perfil.nome,

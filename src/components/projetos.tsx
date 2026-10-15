@@ -174,7 +174,7 @@ function Vitrine({ imagens, titulo }: { imagens: string[]; titulo: string }) {
           key={src}
           className={`absolute top-[12%] aspect-[9/16] w-[30%] max-w-56 overflow-hidden rounded-2xl shadow-2xl ring-1 shadow-black/60 ring-white/10 transition-transform duration-700 ease-out ${posicoes[i]}`}
         >
-          <Image src={src} alt={`${titulo} — tela ${i + 1}`} fill sizes="(min-width: 1024px) 220px, 30vw" className="object-cover object-top" />
+          <Image src={src} alt={`${titulo}, tela ${i + 1}`} fill sizes="(min-width: 1024px) 220px, 30vw" className="object-cover object-top" />
         </div>
       ))}
     </div>
@@ -291,7 +291,7 @@ function Detalhes({ projeto, fechar }: { projeto: Projeto; fechar: () => void })
                   <div className="relative size-full">
                     <Image
                       src={projeto.imagens[foto]}
-                      alt={`${projeto.titulo} — imagem ${foto + 1}`}
+                      alt={`${projeto.titulo}, imagem ${foto + 1}`}
                       fill
                       sizes="(min-width: 768px) 720px, 100vw"
                       quality={85}

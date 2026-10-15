@@ -27,7 +27,7 @@ import {
  */
 
 export const metadata: Metadata = {
-  title: `Currículo — ${perfil.nomeCompleto}`,
+  title: `Currículo de ${perfil.nomeCompleto}`,
   description: `Currículo de ${perfil.nomeCompleto}: ${perfil.cargos[0]} em ${perfil.cidade}.`,
 };
 
@@ -43,8 +43,9 @@ export default function Curriculo() {
     { texto: perfil.cidade },
     { texto: perfil.email, href: `mailto:${perfil.email}` },
     { texto: semProtocolo(perfil.site), href: perfil.site },
-    linkedin && { texto: semProtocolo(linkedin.url), href: linkedin.url },
-    github && { texto: semProtocolo(github.url), href: github.url },
+    // Só o nome, sem o endereço: o do LinkedIn tem hífen e o link continua clicável.
+    linkedin && { texto: "LinkedIn", href: linkedin.url },
+    github && { texto: "GitHub", href: github.url },
   ].filter(Boolean) as { texto: string; href?: string }[];
 
   const ferramentasTexto = lista(ferramentas.map((f) => f.nome));
@@ -110,7 +111,7 @@ export default function Curriculo() {
                     <span className="text-violet-700">{e.empresa}</span>
                   </h3>
                   <span className="text-[9pt] text-zinc-500">
-                    {[e.inicio ? `${e.inicio} — ${e.fim || "atual"}` : e.fim || "Atual", e.local].filter(Boolean).join(" · ")}
+                    {[e.inicio ? `${e.inicio} até ${e.fim || "hoje"}` : e.fim || "Atual", e.local].filter(Boolean).join(" · ")}
                   </span>
                 </div>
                 <p className="mt-0.5">{e.descricao}</p>
@@ -142,7 +143,7 @@ export default function Curriculo() {
                     </a>
                   </>
                 )}
-                <span className="text-zinc-400"> — </span>
+                <span className="text-zinc-400">: </span>
                 {p.resumo}
               </li>
             ))}
@@ -191,7 +192,7 @@ export default function Curriculo() {
             <ul>
               {idiomas.map((i) => (
                 <li key={i.nome}>
-                  <span className="font-semibold text-zinc-900">{i.nome}</span> — {i.nivel}
+                  <span className="font-semibold text-zinc-900">{i.nome}:</span> {i.nivel}
                 </li>
               ))}
             </ul>
@@ -204,7 +205,7 @@ export default function Curriculo() {
               <li key={c.nome}>
                 {c.nome}
                 {(c.instituicao || c.ano) && (
-                  <span className="text-[9pt] text-zinc-500"> — {[c.instituicao, c.ano].filter(Boolean).join(", ")}</span>
+                  <span className="text-[9pt] text-zinc-500"> ({[c.instituicao, c.ano].filter(Boolean).join(", ")})</span>
                 )}
               </li>
             ))}
