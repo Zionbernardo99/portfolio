@@ -11,7 +11,7 @@ export const secoes = [
   { id: "projetos", rotulo: "Projetos" },
   { id: "habilidades", rotulo: "Habilidades" },
   { id: "ia", rotulo: "IA" },
-  { id: "cursos", rotulo: "Formação" },
+  { id: "cursos", rotulo: "Cursos" },
   { id: "competencias", rotulo: "Competências" },
   { id: "contato", rotulo: "Contato" },
 ];

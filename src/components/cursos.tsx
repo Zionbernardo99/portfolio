@@ -9,10 +9,11 @@ export function Cursos() {
     <Secao
       id="cursos"
       numero="06"
-      rotulo="Formação"
+      rotulo={formacao.length > 0 ? "Formação" : "Cursos"}
       titulo={
         <>
-          Formação e <span className="texto-gradiente">cursos</span>.
+          {formacao.length > 0 ? "Formação e " : "Cursos e "}
+          <span className="texto-gradiente">{formacao.length > 0 ? "cursos" : "certificados"}</span>.
         </>
       }
     >

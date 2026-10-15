@@ -26,7 +26,7 @@ export function Hero() {
         className="mx-auto grid w-full max-w-6xl items-center gap-14 px-4 sm:px-6 lg:grid-cols-[1.25fr_1fr] lg:gap-10"
       >
         <motion.div style={{ y: descerTexto }} className="order-2 lg:order-1">
-          {perfil.disponivel && (
+          {perfil.agora && (
             <motion.p
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
@@ -37,7 +37,7 @@ export function Hero() {
                 <span className="absolute inline-flex size-full animate-ping rounded-full bg-emerald-400 opacity-75" />
                 <span className="relative inline-flex size-2 rounded-full bg-emerald-400" />
               </span>
-              Disponível para novas oportunidades
+              {perfil.agora}
             </motion.p>
           )}
 

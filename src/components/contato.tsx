@@ -31,12 +31,12 @@ export function Contato() {
             transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
           />
           <div className="relative">
-            <p className="font-mono text-xs tracking-[0.2em] text-violeta uppercase">07 · Contato</p>
+            <p className="font-mono text-xs tracking-[0.2em] text-violeta uppercase">08 · Contato</p>
             <h2 className="mx-auto mt-5 max-w-3xl font-display text-4xl leading-tight font-bold tracking-tight text-balance sm:text-5xl md:text-6xl">
               Vamos construir algo <span className="texto-gradiente">juntos</span>?
             </h2>
             <p className="mx-auto mt-5 max-w-xl text-pretty text-suave sm:text-lg">
-              Estou aberto a vagas, freelas e boas ideias. Me chama que eu respondo rápido.
+              Um projeto, uma parceria, um site para o seu negócio ou só uma boa conversa sobre tecnologia: me chama que eu respondo rápido.
             </p>
 
             <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">

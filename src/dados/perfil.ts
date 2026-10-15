@@ -119,11 +119,12 @@ export const perfil = {
   apresentacao:
     "Construo aplicações web completas — do banco de dados à última animação da interface, com IA onde ela ajuda — com foco em produtos que as pessoas usam de verdade.",
   sobre: [
-    "Cresci acompanhando de perto a HSystem, startup de software fundada pelo meu pai e vendida em 2024 para um grande grupo de turismo. Foi ali que entendi como um produto de software nasce e cresce — e hoje estudo Análise e Desenvolvimento de Software na Estácio.",
+    "Cresci acompanhando de perto a HSystem, startup de software fundada pelo meu pai e vendida em 2024 para um grande grupo de turismo. Foi ali que entendi como um produto de software nasce e cresce.",
     "Sou Analista de Infraestrutura no Grupo ND, tenho minha própria empresa, a Nex, e criei o Lifelyst, um organizador pessoal e familiar. Trabalho principalmente com TypeScript, React e Next.js, em todas as camadas: banco de dados, APIs, pagamentos, notificações e publicação na Play Store.",
     "Também coloco inteligência artificial em produção: a Lys, assistente do Lifelyst, entende o que você escreve, fala ou fotografa e transforma em ações no app.",
   ],
-  disponivel: true,
+  /** Selo verde no topo do site, com o que você faz hoje. Vazio ("") esconde. */
+  agora: "Analista de Infraestrutura no Grupo ND",
   /**
    * O PDF do botão "Baixar currículo". Ele é a página /curriculo impressa:
    * abra o site, vá em /curriculo, Ctrl+P → "Salvar como PDF" e substitua o
@@ -346,14 +347,12 @@ export const ia = {
 
 // ─── Cursos e certificados ────────────────────────────────────────────────
 
-export const formacao: Formacao[] = [
-  {
-    curso: "Análise e Desenvolvimento de Software",
-    instituicao: "Universidade Estácio",
-    periodo: "2026 — atual",
-    emAndamento: true,
-  },
-];
+/**
+ * Faculdade, técnico etc. Vazio esconde o cartão no site e o bloco no
+ * currículo. Exemplo:
+ * { curso: "Análise e Desenvolvimento de Sistemas", instituicao: "Universidade Estácio", periodo: "2027 — atual", emAndamento: true },
+ */
+export const formacao: Formacao[] = [];
 
 export const cursos: Curso[] = [
   { nome: "Fluência em IA", instituicao: "Fundação Bradesco" },

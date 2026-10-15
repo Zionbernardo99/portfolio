@@ -163,21 +163,23 @@ export default function Curriculo() {
           </dl>
         </Bloco>
 
-        <div className="grid gap-x-8 sm:grid-cols-2 print:grid-cols-2">
-          <Bloco titulo="Formação">
-            {formacao.map((f) => (
-              <div key={f.curso} className="break-inside-avoid">
-                <p className="font-semibold text-zinc-900">{f.curso}</p>
-                <p>
-                  {f.instituicao} <span className="text-zinc-400">·</span>{" "}
-                  <span className="text-[9pt] text-zinc-500">
-                    {f.periodo}
-                    {f.emAndamento && " (em andamento)"}
-                  </span>
-                </p>
-              </div>
-            ))}
-          </Bloco>
+        <div className={formacao.length > 0 ? "grid gap-x-8 sm:grid-cols-2 print:grid-cols-2" : ""}>
+          {formacao.length > 0 && (
+            <Bloco titulo="Formação">
+              {formacao.map((f) => (
+                <div key={f.curso} className="break-inside-avoid">
+                  <p className="font-semibold text-zinc-900">{f.curso}</p>
+                  <p>
+                    {f.instituicao} <span className="text-zinc-400">·</span>{" "}
+                    <span className="text-[9pt] text-zinc-500">
+                      {f.periodo}
+                      {f.emAndamento && " (em andamento)"}
+                    </span>
+                  </p>
+                </div>
+              ))}
+            </Bloco>
+          )}
 
           <Bloco titulo="Idiomas">
             <ul>
