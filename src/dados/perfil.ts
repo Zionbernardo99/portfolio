@@ -33,8 +33,13 @@ export type Projeto = {
   resumo: string;
   /** Texto completo, aparece quando a pessoa clica no projeto. */
   descricao: string;
-  /** Fotos/prints do projeto. A primeira é a capa do card. */
+  /** Fotos/prints do projeto. A primeira é a capa do card, se não houver `capa`. */
   imagens: string[];
+  /**
+   * Opcional: imagem só para o card (4:3). Um print de site em tela larga fica
+   * ilegível no card; tirado numa janela de 1024 × 768 o texto aparece maior.
+   */
+  capa?: string;
   /** Usado nos filtros no topo da seção. */
   categoria: string;
   tecnologias: string[];
@@ -221,6 +226,7 @@ export const projetos: Projeto[] = [
     resumo: "Minha empresa: sites, cardápios digitais e pedidos online para o comércio de Florianópolis.",
     descricao:
       "Site próprio, catálogo ou cardápio digital e sistema de pedidos para lojas, restaurantes, salões, oficinas e clínicas, sem comissão de aplicativo. O site tem 9 demonstrações no ar: uma pizzaria, um salão e um mercadinho, cada um nos planos Básico, Intermediário e Avançado, com carrinho, pedido pelo WhatsApp, Pix, agendamento, QR Code na mesa e painel do lojista.",
+    capa: "/projetos/nex/capa.webp",
     imagens: [
       "/projetos/nex/inicio.webp",
       "/projetos/nex/galeria.webp",
@@ -237,6 +243,7 @@ export const projetos: Projeto[] = [
     resumo: "Portal de vagas que desenvolvi para o maior grupo de comunicação de Santa Catarina.",
     descricao:
       "Portal de carreiras das 11 marcas do Grupo ND, como NDTV e ND+. O candidato filtra as vagas por área, cidade e modelo de trabalho, se candidata e acompanha cada etapa pelo portal, entra no banco de talentos e pode receber as vagas novas por email.",
+    capa: "/projetos/grupo-nd/capa.webp",
     imagens: [
       "/projetos/grupo-nd/inicio.webp",
       "/projetos/grupo-nd/vagas.webp",
