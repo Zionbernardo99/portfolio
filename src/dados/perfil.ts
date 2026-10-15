@@ -127,8 +127,8 @@ export const perfil = {
   apresentacao:
     "Crio aplicações web usando a IA como ferramenta, da ideia ao produto no ar, com foco em coisas que as pessoas usam de verdade.",
   sobre: [
-    "Cresci acompanhando de perto a HSystem, startup de software fundada pelo meu pai e vendida em 2024 para um grande grupo de turismo. Foi ali que entendi como um produto de software nasce e cresce.",
-    "Sou Analista de Infraestrutura no Grupo ND, tenho minha própria empresa, a Nex, e criei o Lifelyst, um organizador pessoal e familiar. Trabalho principalmente com TypeScript, React e Next.js, e uso agentes de IA para ir mais longe: no Lifelyst já passei por banco de dados, APIs, pagamentos, notificações e publicação na Play Store.",
+    "Sou desenvolvedor web em Florianópolis e gosto de transformar ideias em produtos que as pessoas usam de verdade. Hoje sou Analista de Infraestrutura no Grupo ND e, em paralelo, toco a Nex, minha empresa de sites e sistemas de pedidos para pequenos negócios.",
+    "Meu principal projeto é o Lifelyst, um organizador pessoal e familiar que construí do zero. Trabalho principalmente com TypeScript, React e Next.js, e uso agentes de IA para ir mais longe: no Lifelyst cuidei de banco de dados, APIs, pagamentos, notificações e da publicação na Play Store.",
     "Também coloco inteligência artificial em produção: a Lys, assistente do Lifelyst, entende o que você escreve, fala ou fotografa e transforma em ações no app.",
   ],
   /** Selo verde no topo do site, com o que você faz hoje. Vazio ("") esconde. */
