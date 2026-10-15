@@ -26,7 +26,7 @@ export function Sobre() {
           ))}
         </div>
 
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-2 content-start gap-4">
           {numeros.map((n, i) => (
             <Revelar key={n.rotulo} atraso={0.1 + i * 0.08}>
               <CartaoBrilho className="p-6" cor={i % 2 ? "34 211 238" : "139 92 246"}>

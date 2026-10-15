@@ -72,10 +72,19 @@ export type Curso = {
   certificado?: string;
 };
 
+export type Formacao = {
+  curso: string;
+  instituicao: string;
+  /** Ex.: "2026 — atual" ou "2026 — 2028". */
+  periodo: string;
+  /** Mostra o selo "Em andamento". */
+  emAndamento: boolean;
+};
+
 export type Competencia = {
   titulo: string;
   descricao: string;
-  icone: "users" | "brain" | "rocket" | "message" | "target" | "palette" | "clock" | "lightbulb";
+  icone: "users" | "brain" | "rocket" | "message" | "target" | "palette" | "clock" | "lightbulb" | "megaphone";
 };
 
 export type Idioma = { nome: string; nivel: string; porcentagem: number };
@@ -108,8 +117,8 @@ export const perfil = {
   apresentacao:
     "Construo aplicações web completas — do banco de dados à última animação da interface, com IA onde ela ajuda — com foco em produtos que as pessoas usam de verdade.",
   sobre: [
-    "Sou desenvolvedor e gosto de transformar ideias em produtos completos. Criei o Lifelyst, um organizador pessoal e familiar que cuida de tarefas, rotina, saúde, estudos, finanças e metas num lugar só.",
-    "Trabalho principalmente com TypeScript, React e Next.js, e me sinto em casa em todas as camadas: modelagem de banco, APIs, pagamentos, notificações, PWA e publicação na Play Store.",
+    "Cresci acompanhando de perto a HSystem, startup de software fundada pelo meu pai e vendida em 2024 para um grande grupo de turismo. Foi ali que entendi como um produto de software nasce e cresce — e hoje estudo Análise e Desenvolvimento de Software na Estácio.",
+    "Sou Analista de Infraestrutura no Grupo ND, tenho minha própria empresa, a Nex, e criei o Lifelyst, um organizador pessoal e familiar. Trabalho principalmente com TypeScript, React e Next.js, em todas as camadas: banco de dados, APIs, pagamentos, notificações e publicação na Play Store.",
     "Também coloco inteligência artificial em produção: a Lys, assistente do Lifelyst, entende o que você escreve, fala ou fotografa e transforma em ações no app.",
   ],
   disponivel: true,
@@ -241,7 +250,7 @@ export const linguagens: Habilidade[] = [
   { nome: "CSS", icone: "css", nivel: 84, detalhe: "Tailwind + ≈ 4 mil linhas à mão" },
   { nome: "Node.js", icone: "nodedotjs", nivel: 80, detalhe: "APIs e 40 scripts de automação" },
   { nome: "SQL · PostgreSQL", icone: "postgresql", nivel: 74, detalhe: "≈ 2 mil linhas de modelo no Prisma" },
-  { nome: "Python", icone: "python", nivel: 45, detalhe: "Scripts que automatizam a Nex" },
+  { nome: "Python", icone: "python", nivel: 55, detalhe: "Curso de Python e Django + scripts da Nex" },
 ];
 
 /** Aparecem na faixa que desliza sozinha. */
@@ -257,6 +266,9 @@ export const ferramentas = [
   { nome: "Google Play", icone: "googleplay" },
   { nome: "Mercado Pago", icone: "mercadopago" },
   { nome: "Claude Code", icone: "claude" },
+  { nome: "Django", icone: "django" },
+  { nome: "Google Ads", icone: "googleads" },
+  { nome: "Power BI", icone: "powerbi" },
 ];
 
 // ─── Inteligência artificial ──────────────────────────────────────────────
@@ -328,26 +340,39 @@ export const ia = {
 
 // ─── Cursos e certificados ────────────────────────────────────────────────
 
+export const formacao: Formacao[] = [
+  {
+    curso: "Análise e Desenvolvimento de Software",
+    instituicao: "Universidade Estácio",
+    periodo: "2026 — atual",
+    emAndamento: true,
+  },
+];
+
 export const cursos: Curso[] = [
-  { nome: "Como Conseguir um Novo Emprego", instituicao: "Fundação Bradesco", ano: "2026" },
+  { nome: "Fluência em IA", instituicao: "Fundação Bradesco" },
   { nome: "IA na Prática: Como Dados bem Estruturados fazem a Diferença", instituicao: "Fundação Bradesco", ano: "2026" },
   { nome: "Inteligência Artificial para Estudantes" },
+  { nome: "Curso Python e Django Completo", instituicao: "Udemy" },
+  { nome: "Administrando Banco de Dados", instituicao: "Fundação Bradesco" },
+  { nome: "Análise de Dados no Power BI", instituicao: "Fundação Bradesco" },
+  { nome: "Como Conseguir um Novo Emprego", instituicao: "Fundação Bradesco", ano: "2026" },
 ];
 
 // ─── Outras competências ──────────────────────────────────────────────────
 
 export const competencias: Competencia[] = [
   { titulo: "Visão de produto", descricao: "Penso no problema de quem usa antes de pensar no código.", icone: "target" },
-  { titulo: "Autonomia", descricao: "Levo um projeto da ideia à loja de aplicativos sozinho.", icone: "rocket" },
+  { titulo: "Autonomia e dedicação", descricao: "Levo um projeto da ideia à loja de aplicativos, com responsabilidade do início ao fim.", icone: "rocket" },
   { titulo: "Aprendizado rápido", descricao: "Estudo a documentação e coloco em prática no mesmo dia.", icone: "brain" },
-  { titulo: "Comunicação", descricao: "Explico decisões técnicas para quem não é da área.", icone: "message" },
+  { titulo: "Comunicação e equipe", descricao: "Explico decisões técnicas para quem não é da área e gosto de dividir o que sei.", icone: "users" },
   { titulo: "Design de interface", descricao: "Cuido do visual e da experiência, não só da lógica.", icone: "palette" },
-  { titulo: "Trabalho em equipe", descricao: "Gosto de revisar, ser revisado e dividir o que sei.", icone: "users" },
+  { titulo: "Marketing digital", descricao: "Google Ads e anúncios nas redes sociais: sei levar gente até o produto.", icone: "megaphone" },
 ];
 
 export const idiomas: Idioma[] = [
   { nome: "Português", nivel: "Fluente", porcentagem: 100 },
-  { nome: "Inglês", nivel: "Intermediário", porcentagem: 60 },
+  { nome: "Inglês", nivel: "Intermediário · estudando", porcentagem: 60 },
 ];
 
 // ─── Números da seção "Sobre" ─────────────────────────────────────────────

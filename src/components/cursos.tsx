@@ -1,7 +1,7 @@
 "use client";
 
-import { ArrowUpRight, Award, Clock } from "lucide-react";
-import { cursos } from "@/dados/perfil";
+import { ArrowUpRight, Award, Clock, GraduationCap } from "lucide-react";
+import { cursos, formacao } from "@/dados/perfil";
 import { CartaoBrilho, Revelar, Secao } from "./ui";
 
 export function Cursos() {
@@ -12,10 +12,35 @@ export function Cursos() {
       rotulo="Formação"
       titulo={
         <>
-          Cursos e <span className="texto-gradiente">certificados</span>.
+          Formação e <span className="texto-gradiente">cursos</span>.
         </>
       }
     >
+      {formacao.map((f) => (
+        <Revelar key={f.curso} className="mb-4">
+          <CartaoBrilho className="p-6 sm:p-8">
+            <div className="flex flex-col gap-5 sm:flex-row sm:items-center">
+              <span className="grid size-14 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-violeta to-ciano shadow-lg shadow-violeta/25 transition-transform duration-500 group-hover:scale-110 group-hover:-rotate-6">
+                <GraduationCap className="size-7 text-white" />
+              </span>
+              <div className="min-w-0 flex-1">
+                <p className="font-mono text-xs tracking-wider text-ciano uppercase">Graduação</p>
+                <h3 className="mt-1 font-display text-xl leading-snug font-semibold sm:text-2xl">{f.curso}</h3>
+                <p className="mt-1 text-suave">{f.instituicao}</p>
+              </div>
+              <div className="flex shrink-0 flex-wrap items-center gap-2">
+                <span className="rounded-full bg-white/5 px-3 py-1 font-mono text-xs text-suave">{f.periodo}</span>
+                {f.emAndamento && (
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-400/10 px-3 py-1 text-xs text-emerald-400">
+                    <span className="size-1.5 animate-piscar rounded-full bg-emerald-400" /> Em andamento
+                  </span>
+                )}
+              </div>
+            </div>
+          </CartaoBrilho>
+        </Revelar>
+      ))}
+
       <div className="grid gap-4 md:grid-cols-2">
         {cursos.map((c, i) => (
           <Revelar key={c.nome} atraso={(i % 2) * 0.08}>

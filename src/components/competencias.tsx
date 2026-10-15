@@ -1,6 +1,6 @@
 "use client";
 
-import { Brain, Clock, Languages, Lightbulb, MessageCircle, Palette, Rocket, Target, Users } from "lucide-react";
+import { Brain, Clock, Languages, Lightbulb, Megaphone, MessageCircle, Palette, Rocket, Target, Users } from "lucide-react";
 import { motion } from "motion/react";
 import { competencias, idiomas, type Competencia } from "@/dados/perfil";
 import { CartaoBrilho, Revelar, Secao } from "./ui";
@@ -14,6 +14,7 @@ const icones: Record<Competencia["icone"], typeof Brain> = {
   palette: Palette,
   clock: Clock,
   lightbulb: Lightbulb,
+  megaphone: Megaphone,
 };
 
 export function Competencias() {
