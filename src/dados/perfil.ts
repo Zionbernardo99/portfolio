@@ -370,6 +370,7 @@ export const ia = {
 export const formacao: Formacao[] = [];
 
 export const cursos: Curso[] = [
+  { nome: "Fundamentos de TI: Hardware e Software", instituicao: "Fundação Bradesco", ano: "2026" },
   { nome: "Fluência em IA", instituicao: "Fundação Bradesco" },
   { nome: "IA na Prática: Como Dados bem Estruturados fazem a Diferença", instituicao: "Fundação Bradesco", ano: "2026" },
   { nome: "Inteligência Artificial para Estudantes" },
