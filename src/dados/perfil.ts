@@ -272,7 +272,7 @@ export const linguagens: Habilidade[] = [
   { nome: "CSS", icone: "css", uso: "dia-a-dia", detalhe: "Tailwind no Lifelyst, CSS puro na Nex" },
   { nome: "Node.js", icone: "nodedotjs", uso: "projeto", detalhe: "APIs e scripts do Lifelyst" },
   { nome: "SQL · PostgreSQL", icone: "postgresql", uso: "projeto", detalhe: "PostgreSQL com Prisma no Lifelyst" },
-  { nome: "Python", icone: "python", uso: "estudando", detalhe: "Curso de Python e Django + scripts da Nex" },
+  { nome: "Python", icone: "python", uso: "estudando", detalhe: "Scripts da Nex" },
 ];
 
 /** Aparecem na faixa que desliza sozinha. */
@@ -371,12 +371,8 @@ export const formacao: Formacao[] = [];
 
 export const cursos: Curso[] = [
   { nome: "Fundamentos de TI: Hardware e Software", instituicao: "Fundação Bradesco", ano: "2026" },
-  { nome: "Fluência em IA", instituicao: "Fundação Bradesco" },
   { nome: "IA na Prática: Como Dados bem Estruturados fazem a Diferença", instituicao: "Fundação Bradesco", ano: "2026" },
   { nome: "Inteligência Artificial para Estudantes" },
-  { nome: "Curso Python e Django Completo", instituicao: "Udemy" },
-  { nome: "Administrando Banco de Dados", instituicao: "Fundação Bradesco" },
-  { nome: "Análise de Dados no Power BI", instituicao: "Fundação Bradesco" },
 ];
 
 // ─── Outras competências ──────────────────────────────────────────────────
