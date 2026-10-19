@@ -378,11 +378,13 @@ export const cursos: Curso[] = [
     nome: "FluêncIA em Inteligência Artificial",
     instituicao: "Fundação Bradesco",
     ano: "2026",
+    certificado: "https://lms.ev.org.br/mpls/Web/Lms/Student/PrintCertificateContent.aspx?uid=13774278&p=VMRDQf3OpXjnQFnl7xwDMAz%252feKTDkqCB",
     aprendizados: [
-      "Os fundamentos da inteligência artificial e de onde veio a IA generativa",
-      "Como escrever bons prompts, praticando com o Copilot",
-      "Como criar agentes com o Copilot Studio no Microsoft 365",
-      "Como usar a IA no dia a dia para ganhar produtividade",
+      "O que é inteligência artificial e o que é IA generativa",
+      "Como as buscas online evoluíram até as respostas geradas por IA",
+      "Como ser mais produtivo usando o Bing Chat",
+      "Ética em inteligência artificial",
+      "Como usar o Copilot da Microsoft no dia a dia",
     ],
     naPratica: "Uso agentes de IA todo dia para programar, e criei a Lys, a assistente com IA do Lifelyst.",
   },
@@ -390,6 +392,7 @@ export const cursos: Curso[] = [
     nome: "Fundamentos de TI: Hardware e Software",
     instituicao: "Fundação Bradesco",
     ano: "2026",
+    certificado: "https://lms.ev.org.br/mpls/Web/Lms/Student/PrintCertificateContent.aspx?uid=13774278&p=VMRDQf3OpXgZAwdtGtTudSD2taSSRrzn",
     aprendizados: [
       "Como a computação evoluiu, dos primeiros computadores aos de hoje",
       "Como o computador representa e guarda informação: bits, bytes e sistemas de numeração",
@@ -398,6 +401,20 @@ export const cursos: Curso[] = [
       "Noções de segurança da informação para o dia a dia",
     ],
     naPratica: "Base para o meu trabalho como Analista de Infraestrutura no Grupo ND.",
+  },
+  {
+    nome: "Inteligência Artificial para Estudantes",
+    instituicao: "Fundação Bradesco",
+    ano: "2026",
+    certificado: "https://lms.ev.org.br/mpls/Web/Lms/Student/PrintCertificateContent.aspx?uid=13774278&p=VMRDQf3OpXgqLzJAUlPgz6T15MMHdZ5F",
+    aprendizados: [
+      "O que é o Copilot e como usar a IA como assistente de estudos",
+      "Pesquisa acadêmica e análise de textos e artigos com IA",
+      "Como se preparar para provas e organizar os estudos com IA",
+      "Simular situações da profissão e resolver problemas com ajuda da IA",
+      "Como fazer uma pesquisa de mercado com IA",
+      "Como aprender e praticar idiomas com IA",
+    ],
   },
   {
     nome: "IA na Prática: Como Dados bem Estruturados fazem a Diferença",
@@ -414,7 +431,6 @@ export const cursos: Curso[] = [
     ],
     naPratica: "É o que faço na Lys: ela devolve os dados num formato fixo, validado antes de salvar no app.",
   },
-  { nome: "Inteligência Artificial para Estudantes" },
 ];
 
 // ─── Outras competências ──────────────────────────────────────────────────
