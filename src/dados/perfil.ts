@@ -375,6 +375,18 @@ export const formacao: Formacao[] = [];
 
 export const cursos: Curso[] = [
   {
+    nome: "FluêncIA em Inteligência Artificial",
+    instituicao: "Fundação Bradesco",
+    ano: "2026",
+    aprendizados: [
+      "Os fundamentos da inteligência artificial e de onde veio a IA generativa",
+      "Como escrever bons prompts, praticando com o Copilot",
+      "Como criar agentes com o Copilot Studio no Microsoft 365",
+      "Como usar a IA no dia a dia para ganhar produtividade",
+    ],
+    naPratica: "Uso agentes de IA todo dia para programar, e criei a Lys, a assistente com IA do Lifelyst.",
+  },
+  {
     nome: "Fundamentos de TI: Hardware e Software",
     instituicao: "Fundação Bradesco",
     ano: "2026",
