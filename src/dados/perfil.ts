@@ -83,6 +83,10 @@ export type Curso = {
   carga?: string;
   /** Link do certificado. Opcional. */
   certificado?: string;
+  /** O que você aprendeu. Com pelo menos um item, o card abre ao clicar. */
+  aprendizados?: string[];
+  /** Opcional: onde você usa isso hoje. Aparece embaixo da lista. */
+  naPratica?: string;
 };
 
 export type Formacao = {
@@ -370,8 +374,30 @@ export const ia = {
 export const formacao: Formacao[] = [];
 
 export const cursos: Curso[] = [
-  { nome: "Fundamentos de TI: Hardware e Software", instituicao: "Fundação Bradesco", ano: "2026" },
-  { nome: "IA na Prática: Como Dados bem Estruturados fazem a Diferença", instituicao: "Fundação Bradesco", ano: "2026" },
+  {
+    nome: "Fundamentos de TI: Hardware e Software",
+    instituicao: "Fundação Bradesco",
+    ano: "2026",
+    aprendizados: [
+      "Como a computação evoluiu, dos primeiros computadores aos de hoje",
+      "Como o computador representa e guarda informação: bits, bytes e sistemas de numeração",
+      "Os componentes de um computador: processador, memória, armazenamento e periféricos",
+      "A diferença entre hardware, software e sistema operacional, e o papel de cada um",
+      "Noções de segurança da informação para o dia a dia",
+    ],
+    naPratica: "Base para o meu trabalho como Analista de Infraestrutura no Grupo ND.",
+  },
+  {
+    nome: "IA na Prática: Como Dados bem Estruturados fazem a Diferença",
+    instituicao: "Fundação Bradesco",
+    ano: "2026",
+    aprendizados: [
+      "Por que a qualidade dos dados define a qualidade da resposta da IA",
+      "Como organizar e padronizar dados antes de usar com IA",
+      "Como analisar dados bem organizados para apoiar decisões",
+    ],
+    naPratica: "É o que faço na Lys: ela devolve os dados num formato fixo, validado antes de salvar no app.",
+  },
   { nome: "Inteligência Artificial para Estudantes" },
 ];
 
