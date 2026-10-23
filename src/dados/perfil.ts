@@ -375,6 +375,21 @@ export const formacao: Formacao[] = [];
 
 export const cursos: Curso[] = [
   {
+    nome: "Administrando Banco de Dados",
+    instituicao: "Fundação Bradesco",
+    ano: "2026",
+    certificado: "https://lms.ev.org.br/mpls/Web/Lms/Student/PrintCertificateContent.aspx?uid=13774278&p=VMRDQf3OpXiw028RhOMcvgY8lvVBcd7P",
+    aprendizados: [
+      "O papel do administrador de banco de dados e as outras funções que cuidam dos dados numa empresa",
+      "Modelos de dados, SQL, esquemas, instâncias e tabelas",
+      "Arquitetura de um Sistema Gerenciador de Banco de Dados (SGBD)",
+      "Gerenciamento e manutenção de sistemas de dados",
+      "Procedimentos administrativos do dia a dia de um banco de dados",
+      "Os tipos de banco de dados mais usados e quais servem para cada porte de empresa",
+    ],
+    naPratica: "Uso no Lifelyst, que guarda os dados das famílias num PostgreSQL com Prisma.",
+  },
+  {
     nome: "FluêncIA em Inteligência Artificial",
     instituicao: "Fundação Bradesco",
     ano: "2026",
