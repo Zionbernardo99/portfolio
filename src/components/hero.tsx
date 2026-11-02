@@ -207,7 +207,7 @@ function Foto() {
           <div className="absolute -inset-1/2 animate-girar bg-[conic-gradient(from_0deg,transparent_0%,#8b5cf6_15%,#22d3ee_35%,transparent_50%,#f472b6_70%,transparent_85%)]" />
           <div className="relative size-full overflow-hidden rounded-[calc(2.5rem-2px)] bg-superficie">
             {perfil.foto ? (
-              <Image src={perfil.foto} alt={perfil.nome} fill priority sizes="(min-width: 1024px) 352px, 320px" className="object-cover" />
+              <Image src={perfil.foto} alt={perfil.nome} fill priority quality={90} sizes="(min-width: 1024px) 352px, (min-width: 640px) 320px, 256px" className="object-cover" />
             ) : (
               <div className="grid size-full place-items-center bg-[radial-gradient(circle_at_30%_20%,rgb(139_92_246/0.35),transparent_60%),radial-gradient(circle_at_80%_90%,rgb(34_211_238/0.25),transparent_55%)]">
                 <span className="texto-gradiente font-display text-8xl font-bold sm:text-9xl">{iniciais}</span>
