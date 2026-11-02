@@ -144,7 +144,7 @@ export function Navegacao() {
                   <a
                     href={`#${s.id}`}
                     onClick={() => setMenuAberto(false)}
-                    className="flex items-baseline gap-4 py-2 font-display text-4xl font-semibold"
+                    className="flex items-baseline gap-4 py-2 font-display text-[clamp(1.625rem,8.5vw,2.25rem)] font-semibold"
                   >
                     <span className="font-mono text-sm text-violeta">0{i + 1}</span>
                     <span className={ativa === s.id ? "texto-gradiente" : ""}>{s.rotulo}</span>

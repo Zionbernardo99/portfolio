@@ -59,6 +59,7 @@
 }
 
 html {
+  overflow-x: clip;
   scroll-behavior: smooth;
   color-scheme: dark;
   background: var(--color-fundo);

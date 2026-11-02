@@ -201,7 +201,7 @@ function Foto() {
         className="relative size-64 sm:size-80 lg:size-[22rem]"
       >
         {/* Brilho atrás */}
-        <div className="absolute -inset-16 bg-[radial-gradient(closest-side,rgb(139_92_246/0.45),rgb(34_211_238/0.18)_55%,transparent)]" />
+        <div className="absolute -inset-10 sm:-inset-16 bg-[radial-gradient(closest-side,rgb(139_92_246/0.45),rgb(34_211_238/0.18)_55%,transparent)]" />
         {/* Borda girando */}
         <div className="absolute inset-0 overflow-hidden rounded-[2.5rem] p-[2px]">
           <div className="absolute -inset-1/2 animate-girar bg-[conic-gradient(from_0deg,transparent_0%,#8b5cf6_15%,#22d3ee_35%,transparent_50%,#f472b6_70%,transparent_85%)]" />

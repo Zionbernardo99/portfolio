@@ -35,7 +35,7 @@ export function Experiencias() {
         {experiencias.map((exp, i) => {
           const direita = i % 2 === 1;
           return (
-            <li key={exp.empresa + exp.inicio} className="relative grid pb-12 last:pb-0 md:grid-cols-2 md:gap-16">
+            <li key={exp.empresa + exp.inicio} className="relative grid pb-12 last:pb-0 max-md:overflow-x-clip md:grid-cols-2 md:gap-16">
               <motion.span
                 aria-hidden
                 initial={{ scale: 0 }}
