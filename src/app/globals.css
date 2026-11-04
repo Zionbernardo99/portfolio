@@ -65,8 +65,9 @@ html {
   background: var(--color-fundo);
 }
 
+/* Sem fundo no body: ele cobriria o <Fundo /> animado (z-index negativo).
+   A cor já vem do html. */
 body {
-  background: var(--color-fundo);
   color: var(--color-texto);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
