@@ -21,7 +21,6 @@ export function Hero() {
 
   return (
     <section ref={ref} id="inicio" className="relative flex min-h-svh items-center pt-28 pb-16">
-      <Estrelas />
       <motion.div
         style={{ opacity: sumir }}
         className="mx-auto grid w-full max-w-6xl items-center gap-14 px-4 sm:px-6 lg:grid-cols-[1.25fr_1fr] lg:gap-10"
@@ -330,65 +329,5 @@ function BotaoMagnetico({
       )}
       <span className="relative inline-flex items-center gap-2">{children}</span>
     </motion.a>
-  );
-}
-
-/**
- * Pontinhos de luz subindo devagar atrás do topo. Posições fixas (sorteadas
- * com uma conta inteira, igual no servidor e no navegador) e só CSS:
- * transform e opacity, sem JavaScript rodando a cada quadro.
- */
-const estrelas = (() => {
-  let semente = 7;
-  const sorteio = () => {
-    semente = (Math.imul(semente, 1103515245) + 12345) & 0x7fffffff;
-    return semente / 0x7fffffff;
-  };
-  const cores = ["255 255 255", "255 255 255", "196 181 253", "103 232 249"];
-  return Array.from({ length: 48 }, (_, i) => ({
-    esquerda: `${(sorteio() * 100).toFixed(2)}%`,
-    tamanho: 1.5 + Math.round(sorteio() * 4) / 2,
-    duracao: `${(12 + sorteio() * 14).toFixed(1)}s`,
-    atraso: `-${(sorteio() * 26).toFixed(1)}s`,
-    deriva: `${Math.round((sorteio() - 0.5) * 60)}px`,
-    cintilar: `${(2 + sorteio() * 3).toFixed(1)}s`,
-    cor: cores[Math.floor(sorteio() * cores.length)],
-    soNoPc: i % 3 !== 0,
-    parada: sorteio().toFixed(2),
-  }));
-})();
-
-function Estrelas() {
-  return (
-    <div
-      aria-hidden
-      className="pointer-events-none absolute inset-0 -z-[5] overflow-hidden [mask-image:linear-gradient(to_top,transparent,#000_15%,#000_70%,transparent)]"
-    >
-      {estrelas.map((e, i) => (
-        <span
-          key={i}
-          className={`absolute top-0 h-full animate-subir will-change-transform ${e.soNoPc ? "max-sm:hidden" : ""}`}
-          style={{
-            left: e.esquerda,
-            width: e.tamanho,
-            animationDuration: e.duracao,
-            animationDelay: e.atraso,
-            ["--deriva" as string]: e.deriva,
-            ["--parada" as string]: e.parada,
-          }}
-        >
-          <span
-            className="absolute bottom-0 left-0 animate-cintilar rounded-full"
-            style={{
-              width: e.tamanho,
-              height: e.tamanho,
-              background: `rgb(${e.cor})`,
-              boxShadow: `0 0 ${e.tamanho * 4}px ${e.tamanho / 2}px rgb(${e.cor} / 0.55)`,
-              animationDuration: e.cintilar,
-            }}
-          />
-        </span>
-      ))}
-    </div>
   );
 }
