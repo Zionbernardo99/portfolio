@@ -136,4 +136,9 @@ section[id] {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
   }
+  /* Quem pediu menos movimento vê as estrelas paradas, em vez de sumirem. */
+  .animate-subir {
+    animation: none !important;
+    transform: translate3d(0, calc(var(--parada, 0.5) * -100%), 0);
+  }
 }

@@ -345,15 +345,16 @@ const estrelas = (() => {
     return semente / 0x7fffffff;
   };
   const cores = ["255 255 255", "255 255 255", "196 181 253", "103 232 249"];
-  return Array.from({ length: 36 }, (_, i) => ({
+  return Array.from({ length: 48 }, (_, i) => ({
     esquerda: `${(sorteio() * 100).toFixed(2)}%`,
-    tamanho: 1 + Math.round(sorteio() * 2),
+    tamanho: 1.5 + Math.round(sorteio() * 4) / 2,
     duracao: `${(12 + sorteio() * 14).toFixed(1)}s`,
     atraso: `-${(sorteio() * 26).toFixed(1)}s`,
     deriva: `${Math.round((sorteio() - 0.5) * 60)}px`,
     cintilar: `${(2 + sorteio() * 3).toFixed(1)}s`,
     cor: cores[Math.floor(sorteio() * cores.length)],
-    soNoPc: i % 2 === 1,
+    soNoPc: i % 3 !== 0,
+    parada: sorteio().toFixed(2),
   }));
 })();
 
@@ -373,6 +374,7 @@ function Estrelas() {
             animationDuration: e.duracao,
             animationDelay: e.atraso,
             ["--deriva" as string]: e.deriva,
+            ["--parada" as string]: e.parada,
           }}
         >
           <span
@@ -381,7 +383,7 @@ function Estrelas() {
               width: e.tamanho,
               height: e.tamanho,
               background: `rgb(${e.cor})`,
-              boxShadow: `0 0 ${e.tamanho * 3}px rgb(${e.cor} / 0.8)`,
+              boxShadow: `0 0 ${e.tamanho * 4}px ${e.tamanho / 2}px rgb(${e.cor} / 0.55)`,
               animationDuration: e.cintilar,
             }}
           />
