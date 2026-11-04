@@ -247,12 +247,12 @@ export const projetos: Projeto[] = [
     resumo: "Portal de vagas que desenvolvi para o maior grupo de comunicação de Santa Catarina.",
     descricao:
       "Portal de carreiras das 11 marcas do Grupo ND, como NDTV e ND+. O candidato filtra as vagas por área, cidade e modelo de trabalho, se candidata e acompanha cada etapa pelo portal, entra no banco de talentos e pode receber as vagas novas por email.",
-    capa: "/projetos/grupo-nd/capa.webp",
+    capa: "/projetos/grupo-nd/capa-v2.webp",
     imagens: [
-      "/projetos/grupo-nd/inicio.webp",
-      "/projetos/grupo-nd/vagas.webp",
-      "/projetos/grupo-nd/vaga.webp",
-      "/projetos/grupo-nd/sobre.webp",
+      "/projetos/grupo-nd/inicio-v2.webp",
+      "/projetos/grupo-nd/vagas-v2.webp",
+      "/projetos/grupo-nd/vaga-v2.webp",
+      "/projetos/grupo-nd/sobre-v2.webp",
     ],
     categoria: "Web",
     tecnologias: ["React", "Vite"],
