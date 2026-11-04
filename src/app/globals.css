@@ -24,6 +24,8 @@
   --animate-mancha-1: mancha-1 26s ease-in-out infinite;
   --animate-mancha-2: mancha-2 32s ease-in-out infinite;
   --animate-mancha-3: mancha-3 38s ease-in-out infinite;
+  --animate-subir: subir 16s linear infinite;
+  --animate-cintilar: cintilar 3s ease-in-out infinite;
 
   @keyframes girar {
     to { transform: rotate(360deg); }
@@ -55,6 +57,17 @@
   @keyframes mancha-3 {
     33% { transform: translate3d(100px, -90px, 0); }
     66% { transform: translate3d(-120px, -30px, 0); }
+  }
+  /* Estrelas do topo: a coluna inteira sobe a própria altura, levando o
+     pontinho de baixo até em cima. */
+  @keyframes subir {
+    0% { transform: translate3d(0, 0, 0); opacity: 0; }
+    12% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { transform: translate3d(var(--deriva, 0px), -100%, 0); opacity: 0; }
+  }
+  @keyframes cintilar {
+    50% { opacity: 0.3; }
   }
 }
 
