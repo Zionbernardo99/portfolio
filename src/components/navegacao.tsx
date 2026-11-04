@@ -50,12 +50,6 @@ export function Navegacao() {
     document.body.style.overflow = menuAberto ? "hidden" : "";
   }, [menuAberto]);
 
-  const iniciais = perfil.nome
-    .split(" ")
-    .map((p) => p[0])
-    .slice(0, 2)
-    .join("");
-
   return (
     <>
       <motion.div
@@ -78,13 +72,10 @@ export function Navegacao() {
           <a
             href="#inicio"
             onClick={() => setMenuAberto(false)}
-            className="flex items-center gap-2.5 rounded-full py-1 pr-3 pl-1"
+            className="flex items-center rounded-full px-3 py-2.5"
             aria-label="Voltar ao início"
           >
-            <span className="grid size-9 place-items-center rounded-full bg-gradient-to-br from-violeta to-ciano font-display text-sm font-bold text-white">
-              {iniciais}
-            </span>
-            <span className="font-display text-sm font-semibold">{perfil.nome}</span>
+            <span className="font-display text-base font-semibold">{perfil.nome}</span>
           </a>
 
           <ul className="hidden items-center gap-0.5 lg:flex">
